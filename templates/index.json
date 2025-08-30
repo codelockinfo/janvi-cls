@@ -584,7 +584,7 @@
       "settings": {
         "video": "shopify://files/videos/SoftGoodsHomePageAlt1_rl.mp4",
         "height": "adapt",
-        "width": "medium",
+        "width": "large",
         "layout": "video_first",
         "content_layout": "no-overlap",
         "desktop_content_position": "top",
