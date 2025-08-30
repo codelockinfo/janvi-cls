@@ -584,14 +584,14 @@
       "settings": {
         "video": "shopify://files/videos/SoftGoodsHomePageAlt1_rl.mp4",
         "height": "adapt",
-        "width": "large",
+        "width": "small",
         "layout": "video_first",
         "content_layout": "no-overlap",
         "desktop_content_position": "top",
         "desktop_content_alignment": "left",
         "mobile_content_alignment": "left",
         "section_color_scheme": "",
-        "color_scheme": "scheme-1",
+        "color_scheme": "scheme-4",
         "padding_top": 36,
         "padding_bottom": 36
       }
