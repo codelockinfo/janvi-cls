@@ -31,7 +31,11 @@
       grid--2-col-tablet
     {% when 'large' %}
       grid--custom-large
-  {% endcase %}">
+  {% endcase %}
+  {% if section.settings.layout == 'text_first' %}
+    video_with_text__grid--reverse
+  {% endif %} 
+  ">
         <div class="video-with-text__media-item image-with-text__media-item--{{ section.settings.width }} grid__item">
           <div class="video-with-text__media video-with-text__media--{{ section.settings.height }} global-media-settings{% unless  remove_color_classes %}gradient color-{{ section.settings.color_scheme }}{% else %}background-transparent{% endunless %}">
             {% if section.settings.video != blank %}
