@@ -24,7 +24,7 @@
   <div class="page-width">
     <div class="video-with-text video-with-text--{{ section.settings.content_layout }}">
       <div class="video-with-text__grid grid grid--gapless grid--1-col grid--{% if section.settings.width == 'medium' %}2-col-tablet{% else %}3-col-tablet{% endif %} {% if section.settings.layout == 'text_first' %}video_with_text__grid--reverse{% endif %}">
-        <div class="video-with-text__media-item grid__item">
+        <div class="video-with-text__media-item image-with-text__media-item--{{ section.settings.width }} grid__item">
           <div class="video-with-text__media video-with-text__media--{{ section.settings.height }} global-media-settings{% unless  remove_color_classes %}gradient color-{{ section.settings.color_scheme }}{% else %}background-transparent{% endunless %}">
             {% if section.settings.video != blank %}
               {{ section.settings.video | media_tag }}
