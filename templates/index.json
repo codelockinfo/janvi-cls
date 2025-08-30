@@ -1,1 +1,614 @@
-{"sections":{"slideshow_WgVq84":{"type":"slideshow","blocks":{"slide_VY69Aq":{"type":"slide","settings":{"image":"shopify:\/\/shop_images\/percale_sale_1024x_ace52028-819f-4b86-8810-0a972ae88f82.webp","image_overlay_opacity":10,"heading":"<strong>What dreams are made of<\/strong>","heading_size":"h0","subheading":"<strong>Discover out top-rated sheets for year- round comfort.<\/strong>","button_label":"SHOP PERCALE","link":"shopify:\/\/collections\/sleep","button_style_secondary":false,"show_text_box":false,"box_align":"middle-center","text_alignment":"center","text_alignment_mobile":"center","color_scheme":"scheme-ffcc5ee8-b5af-463b-b2fb-6474a2d21852"}},"slide_QCKYgK":{"type":"slide","settings":{"image":"shopify:\/\/shop_images\/2_BF_SALE_BANNER_1920x1439_1024x_03a4cd78-2043-4b04-b4f4-61ebb37f0f38.jpg","image_overlay_opacity":10,"heading":"<strong>Honey,I'm honeycomb<\/strong>","heading_size":"h0","subheading":"<strong>Stretch out bathtime with these coveted essentials<\/strong>","button_label":"SHOP NOW","link":"shopify:\/\/collections\/bath","button_style_secondary":false,"show_text_box":false,"box_align":"middle-center","text_alignment":"center","text_alignment_mobile":"center","color_scheme":"scheme-ffcc5ee8-b5af-463b-b2fb-6474a2d21852"}},"slide_TTRqzj":{"type":"slide","settings":{"image":"shopify:\/\/shop_images\/Snowe_hero_linensale_1024x_2893ff90-1998-47b1-80b7-c627d1d42d62.webp","image_overlay_opacity":0,"heading":"<strong>Going,going... almost gone<\/strong>","heading_size":"h0","subheading":"<strong>Best-selling bedding,dinnerware,and more-before they're gone for good.<\/strong>","button_label":"SHOP FINAL FEW","link":"shopify:\/\/pages\/best-sellers","button_style_secondary":false,"show_text_box":false,"box_align":"middle-center","text_alignment":"center","text_alignment_mobile":"center","color_scheme":"scheme-ffcc5ee8-b5af-463b-b2fb-6474a2d21852"}}},"block_order":["slide_VY69Aq","slide_QCKYgK","slide_TTRqzj"],"name":"t:sections.slideshow.presets.name","settings":{"layout":"full_bleed","slide_height":"medium","slider_visual":"dots","auto_rotate":false,"change_slides_speed":5,"image_behavior":"none","show_text_below":true,"accessibility_info":"Slideshow about our brand"}},"multicolumn_xdhpyx":{"type":"multicolumn","blocks":{"column_tUT4yW":{"type":"column","settings":{"image":"shopify:\/\/shop_images\/Vohgah_400x_5b0b03ab-18bb-48bc-a110-dacab48d4700.avif","title":"","text":"<p>“The perfect additions to a couple’s first home.”<\/p>","link_label":"","link":""}},"column_FFiqY9":{"type":"column","settings":{"image":"shopify:\/\/shop_images\/fahstcom_400x_0aab4d80-ee73-4eb8-aca6-0b6aacb73a66.avif","title":"","text":"<p>“When it comes to the design of SNOWE’s products, nothing goes unconsidered.”<\/p>","link_label":"","link":""}},"column_rgVwef":{"type":"column","settings":{"image":"shopify:\/\/shop_images\/Glamour-Logo.svg","title":"","text":"<p>“Gorgeous essentials that don’t cost a fortune.”<\/p>","link_label":"","link":""}},"column_XbtQmG":{"type":"column","settings":{"image":"shopify:\/\/shop_images\/AyyDee_400x_70138de3-8507-47d4-a4db-d64d4769a35b.avif","title":"","text":"<p>“Your new favorite for home essentials.”<\/p>","link_label":"","link":""}}},"block_order":["column_tUT4yW","column_FFiqY9","column_rgVwef","column_XbtQmG"],"name":"t:sections.multicolumn.presets.name","settings":{"title":"","heading_size":"h1","image_width":"full","image_ratio":"adapt","button_label":"","button_link":"","columns_desktop":4,"column_alignment":"center","background_style":"none","color_scheme":"scheme-2","columns_mobile":"1","swipe_on_mobile":false,"padding_top":36,"padding_bottom":36}},"rich_text_76XUGH":{"type":"rich-text","blocks":{"text_Qdy4HY":{"type":"text","settings":{"text":"<h4>ELEVATE YOUR WHOLE HOME<\/h4>"}},"heading_cdD3HY":{"type":"heading","settings":{"heading":"<strong>Remarkably Simple. Deliciously Exceptional.<\/strong>","heading_size":"h1"}}},"block_order":["text_Qdy4HY","heading_cdD3HY"],"name":"t:sections.rich-text.presets.name","settings":{"desktop_content_position":"center","content_alignment":"center","color_scheme":"scheme-2","full_width":true,"padding_top":40,"padding_bottom":52}},"image_with_text_bw3HKH":{"type":"image-with-text","blocks":{"heading_hEUChq":{"type":"heading","settings":{"heading":"Image with text","heading_size":"h1"}},"text_8gJzDG":{"type":"text","settings":{"text":"<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>","text_style":"body"}},"button_DgdfjC":{"type":"button","settings":{"button_label":"Button label","button_link":"","button_style_secondary":false}}},"block_order":["heading_hEUChq","text_8gJzDG","button_DgdfjC"],"disabled":true,"name":"t:sections.image-with-text.presets.name","settings":{"height":"adapt","desktop_image_width":"medium","layout":"image_first","image_behavior":"none","content_layout":"no-overlap","desktop_content_position":"top","desktop_content_alignment":"left","mobile_content_alignment":"left","section_color_scheme":"","color_scheme":"","padding_top":36,"padding_bottom":36}},"image_banner_ka4gqt":{"type":"image-banner","blocks":{"heading_Dy3zmH":{"type":"heading","settings":{"heading":"Image banner","heading_size":"h1"}},"text_QHyqbG":{"type":"text","settings":{"text":"Give customers details about the banner image(s) or content on the template.","text_style":"body"}},"buttons_LjLTTe":{"type":"buttons","settings":{"button_label_1":"Button label","button_link_1":"","button_style_secondary_1":false,"button_label_2":"Button label","button_link_2":"","button_style_secondary_2":false}}},"block_order":["heading_Dy3zmH","text_QHyqbG","buttons_LjLTTe"],"disabled":true,"name":"t:sections.image-banner.presets.name","settings":{"image":"shopify:\/\/shop_images\/Snowe_hero_linensale_1024x_2893ff90-1998-47b1-80b7-c627d1d42d62.webp","image_2":"shopify:\/\/shop_images\/2_BF_SALE_BANNER_1920x1439_1024x_03a4cd78-2043-4b04-b4f4-61ebb37f0f38.jpg","image_overlay_opacity":0,"image_height":"medium","image_behavior":"none","desktop_content_position":"middle-right","desktop_content_alignment":"center","show_text_box":false,"color_scheme":"scheme-3","stack_images_on_mobile":true,"mobile_content_alignment":"center","show_text_below":false}},"slideshow_jfVEga":{"type":"slideshow","blocks":{"slide_iWggnB":{"type":"slide","settings":{"image":"shopify:\/\/shop_images\/Homepage_Slider_Refresh-Recovered_16_575x_e20dc4a2-06dc-41bd-be03-bed3838d452c.webp","image_overlay_opacity":0,"heading":"<strong>SLEEP<\/strong>","heading_size":"h0","subheading":"Everything good happens in bed.Especially with decadent,hand-crafted bed.","button_label":"SHOP ALL","link":"shopify:\/\/collections\/sleep","button_style_secondary":true,"show_text_box":true,"box_align":"middle-right","text_alignment":"center","text_alignment_mobile":"center","color_scheme":"scheme-1"}},"slide_iNCzh8":{"type":"slide","settings":{"image":"shopify:\/\/shop_images\/Snowe_Bathe_Towels_CLP_Banner_rl_1300x_3c1c095d-9bc2-446e-8c5c-8bbae8d5a4df.webp","image_overlay_opacity":0,"heading":"<strong>BATHE<\/strong>","heading_size":"h0","subheading":"Softness addictions are real.Our seriously soft,ultra-absorbant bath linens aren't helping.","button_label":"SHOP ALL","link":"shopify:\/\/collections\/bath","button_style_secondary":true,"show_text_box":true,"box_align":"middle-right","text_alignment":"center","text_alignment_mobile":"center","color_scheme":"scheme-1"}},"slide_w8XP9F":{"type":"slide","settings":{"image":"shopify:\/\/shop_images\/Homepage_Slider_Refresh_Eat_Static_575x_508ebc30-f6af-485c-9569-79aeb8fd15c7.webp","image_overlay_opacity":0,"heading":"<strong>EAT<\/strong>","heading_size":"h0","subheading":"From coq au vin to coco Puffs,our dinnerware,serveware and flatware work for whatever's on your menu.","button_label":"SHOP ALL","link":"shopify:\/\/collections\/eat","button_style_secondary":true,"show_text_box":true,"box_align":"middle-right","text_alignment":"center","text_alignment_mobile":"center","color_scheme":"scheme-1"}},"slide_EHXynb":{"type":"slide","settings":{"image":"shopify:\/\/shop_images\/2021.10.21.SnoweMiami0755_2048x2048_1ac8c94d-3615-41a6-aa60-57a923ee249c.jpg","image_overlay_opacity":0,"heading":"<strong>DECOR<\/strong>","heading_size":"h0","subheading":"Architectural forms and sumptuous shades. Oue finishing touches add an extra layer of oomph anywhare.","button_label":"SHOP ALL","link":"shopify:\/\/collections\/decor-2","button_style_secondary":true,"show_text_box":true,"box_align":"middle-right","text_alignment":"center","text_alignment_mobile":"center","color_scheme":"scheme-1"}}},"block_order":["slide_iWggnB","slide_iNCzh8","slide_w8XP9F","slide_EHXynb"],"name":"t:sections.slideshow.presets.name","settings":{"layout":"grid","slide_height":"small","slider_visual":"dots","auto_rotate":false,"change_slides_speed":5,"image_behavior":"none","show_text_below":true,"accessibility_info":"Slideshow about our brand"}},"rich_text_hREnFK":{"type":"rich-text","blocks":{"text_RQCPqR":{"type":"text","settings":{"text":"<h5><strong>BEST SELLERS<\/strong><\/h5>"}},"heading_YwqMx3":{"type":"heading","settings":{"heading":"<strong>Sometimes, it's a popularity contest<\/strong>","heading_size":"h1"}}},"block_order":["text_RQCPqR","heading_YwqMx3"],"name":"t:sections.rich-text.presets.name","settings":{"desktop_content_position":"left","content_alignment":"left","color_scheme":"","full_width":true,"padding_top":40,"padding_bottom":52}},"featured_collection_eYMyt6":{"type":"featured-collection","name":"t:sections.featured-collection.presets.name","settings":{"collection":"all","products_to_show":25,"title":"","heading_size":"h1","description":"","show_description":false,"description_style":"body","columns_desktop":4,"enable_desktop_slider":true,"full_width":true,"show_view_all":false,"view_all_style":"solid","color_scheme":"","image_ratio":"portrait","image_shape":"default","show_secondary_image":true,"show_vendor":false,"show_rating":false,"quick_add":"none","columns_mobile":"2","swipe_on_mobile":false,"padding_top":0,"padding_bottom":36}},"image_with_text_cnCY9J":{"type":"image-with-text","blocks":{"heading_P943hF":{"type":"heading","settings":{"heading":"<strong>Meet your future-proof heirlooms<\/strong>","heading_size":"h1"}},"text_xTEDDa":{"type":"text","settings":{"text":"<p>We use irresistible materials and inventive craftsmanship to turn essentials into infatuations.<\/p>","text_style":"body"}},"button_7C9CJN":{"type":"button","settings":{"button_label":"SEE HOW WE DO IT","button_link":"shopify:\/\/pages\/show","button_style_secondary":true}}},"block_order":["heading_P943hF","text_xTEDDa","button_7C9CJN"],"name":"t:sections.image-with-text.presets.name","settings":{"image":"shopify:\/\/shop_images\/SNOWE_Holiday20_EAT_Hero_1724-copy_2048x2048_71012b0d-c539-4e62-a3f6-bab33a9ba266.webp","height":"adapt","desktop_image_width":"medium","layout":"image_first","image_behavior":"none","content_layout":"no-overlap","desktop_content_position":"top","desktop_content_alignment":"left","mobile_content_alignment":"left","section_color_scheme":"scheme-1","color_scheme":"scheme-f028aafd-bc4d-4be2-96b8-f232e287636a","padding_top":36,"padding_bottom":0}},"img_text_cg4WJ9":{"type":"img-text","blocks":{"heading_qj3ECC":{"type":"heading","settings":{"heading":"Image Text","heading_size":"h1"}},"text_UWwTa3":{"type":"text","settings":{"text":"<p>Add Text here.<\/p>","text_style":"body"}},"button_mp7Ddh":{"type":"button","settings":{"button_label":"Button","button_link":"","button_style_secondary":false}}},"block_order":["heading_qj3ECC","text_UWwTa3","button_mp7Ddh"],"disabled":true,"name":"Image Text","settings":{"image":"shopify:\/\/shop_images\/trade-press-4_400x_bcf01c82-005b-44f1-bbd6-8c8a1d90bd5c.webp","height":"adapt","desktop_image_width":"medium","layout":"image_first","image_behavior":"none","content_layout":"no-overlap","desktop_content_position":"top","desktop_content_alignment":"left","mobile_content_alignment":"left","section_color_scheme":"","color_scheme":"scheme-3","padding_top":36,"padding_bottom":36}},"video_NBfcDT":{"type":"video","disabled":true,"name":"t:sections.video.presets.name","settings":{"heading":"Video","heading_size":"h1","enable_video_looping":false,"video_url":"https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc","description":"","full_width":false,"color_scheme":"","padding_top":36,"padding_bottom":36}},"video_text_rnBBj3":{"type":"video-text","blocks":{"heading_BTh8bq":{"type":"heading","settings":{"heading":"Video With Text.","heading_size":"h1"}},"text_7Jyip4":{"type":"text","settings":{"text":"<p>Add text here.<\/p>","text_style":"body"}},"button_qzYmrh":{"type":"button","settings":{"button_label":"Button","button_link":"","button_style_secondary":false}}},"block_order":["heading_BTh8bq","text_7Jyip4","button_qzYmrh"],"name":"Video With Text","settings":{"video":"shopify:\/\/files\/videos\/SoftGoodsHomePageAlt1_rl.mp4","height":"adapt","width":"small","layout":"video_first","content_layout":"no-overlap","desktop_content_position":"top","desktop_content_alignment":"left","mobile_content_alignment":"left","section_color_scheme":"","color_scheme":"scheme-1","padding_top":36,"padding_bottom":36}}},"order":["slideshow_WgVq84","multicolumn_xdhpyx","rich_text_76XUGH","image_with_text_bw3HKH","image_banner_ka4gqt","slideshow_jfVEga","rich_text_hREnFK","featured_collection_eYMyt6","image_with_text_cnCY9J","img_text_cg4WJ9","video_NBfcDT","video_text_rnBBj3"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "slideshow_WgVq84": {
+      "type": "slideshow",
+      "blocks": {
+        "slide_VY69Aq": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/percale_sale_1024x_ace52028-819f-4b86-8810-0a972ae88f82.webp",
+            "image_overlay_opacity": 10,
+            "heading": "<strong>What dreams are made of</strong>",
+            "heading_size": "h0",
+            "subheading": "<strong>Discover out top-rated sheets for year- round comfort.</strong>",
+            "button_label": "SHOP PERCALE",
+            "link": "shopify://collections/sleep",
+            "button_style_secondary": false,
+            "show_text_box": false,
+            "box_align": "middle-center",
+            "text_alignment": "center",
+            "text_alignment_mobile": "center",
+            "color_scheme": "scheme-ffcc5ee8-b5af-463b-b2fb-6474a2d21852"
+          }
+        },
+        "slide_QCKYgK": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/2_BF_SALE_BANNER_1920x1439_1024x_03a4cd78-2043-4b04-b4f4-61ebb37f0f38.jpg",
+            "image_overlay_opacity": 10,
+            "heading": "<strong>Honey,I'm honeycomb</strong>",
+            "heading_size": "h0",
+            "subheading": "<strong>Stretch out bathtime with these coveted essentials</strong>",
+            "button_label": "SHOP NOW",
+            "link": "shopify://collections/bath",
+            "button_style_secondary": false,
+            "show_text_box": false,
+            "box_align": "middle-center",
+            "text_alignment": "center",
+            "text_alignment_mobile": "center",
+            "color_scheme": "scheme-ffcc5ee8-b5af-463b-b2fb-6474a2d21852"
+          }
+        },
+        "slide_TTRqzj": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Snowe_hero_linensale_1024x_2893ff90-1998-47b1-80b7-c627d1d42d62.webp",
+            "image_overlay_opacity": 0,
+            "heading": "<strong>Going,going... almost gone</strong>",
+            "heading_size": "h0",
+            "subheading": "<strong>Best-selling bedding,dinnerware,and more-before they're gone for good.</strong>",
+            "button_label": "SHOP FINAL FEW",
+            "link": "shopify://pages/best-sellers",
+            "button_style_secondary": false,
+            "show_text_box": false,
+            "box_align": "middle-center",
+            "text_alignment": "center",
+            "text_alignment_mobile": "center",
+            "color_scheme": "scheme-ffcc5ee8-b5af-463b-b2fb-6474a2d21852"
+          }
+        }
+      },
+      "block_order": [
+        "slide_VY69Aq",
+        "slide_QCKYgK",
+        "slide_TTRqzj"
+      ],
+      "name": "t:sections.slideshow.presets.name",
+      "settings": {
+        "layout": "full_bleed",
+        "slide_height": "medium",
+        "slider_visual": "dots",
+        "auto_rotate": false,
+        "change_slides_speed": 5,
+        "image_behavior": "none",
+        "show_text_below": true,
+        "accessibility_info": "Slideshow about our brand"
+      }
+    },
+    "multicolumn_xdhpyx": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_tUT4yW": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/Vohgah_400x_5b0b03ab-18bb-48bc-a110-dacab48d4700.avif",
+            "title": "",
+            "text": "<p>“The perfect additions to a couple’s first home.”</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_FFiqY9": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/fahstcom_400x_0aab4d80-ee73-4eb8-aca6-0b6aacb73a66.avif",
+            "title": "",
+            "text": "<p>“When it comes to the design of SNOWE’s products, nothing goes unconsidered.”</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_rgVwef": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/Glamour-Logo.svg",
+            "title": "",
+            "text": "<p>“Gorgeous essentials that don’t cost a fortune.”</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_XbtQmG": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/AyyDee_400x_70138de3-8507-47d4-a4db-d64d4769a35b.avif",
+            "title": "",
+            "text": "<p>“Your new favorite for home essentials.”</p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_tUT4yW",
+        "column_FFiqY9",
+        "column_rgVwef",
+        "column_XbtQmG"
+      ],
+      "name": "t:sections.multicolumn.presets.name",
+      "settings": {
+        "title": "",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "button_label": "",
+        "button_link": "",
+        "columns_desktop": 4,
+        "column_alignment": "center",
+        "background_style": "none",
+        "color_scheme": "scheme-2",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "rich_text_76XUGH": {
+      "type": "rich-text",
+      "blocks": {
+        "text_Qdy4HY": {
+          "type": "text",
+          "settings": {
+            "text": "<h4>ELEVATE YOUR WHOLE HOME</h4>"
+          }
+        },
+        "heading_cdD3HY": {
+          "type": "heading",
+          "settings": {
+            "heading": "<strong>Remarkably Simple. Deliciously Exceptional.</strong>",
+            "heading_size": "h1"
+          }
+        }
+      },
+      "block_order": [
+        "text_Qdy4HY",
+        "heading_cdD3HY"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-2",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "image_with_text_bw3HKH": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_hEUChq": {
+          "type": "heading",
+          "settings": {
+            "heading": "Image with text",
+            "heading_size": "h1"
+          }
+        },
+        "text_8gJzDG": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+            "text_style": "body"
+          }
+        },
+        "button_DgdfjC": {
+          "type": "button",
+          "settings": {
+            "button_label": "Button label",
+            "button_link": "",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_hEUChq",
+        "text_8gJzDG",
+        "button_DgdfjC"
+      ],
+      "disabled": true,
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "image_behavior": "none",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "",
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "image_banner_ka4gqt": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_Dy3zmH": {
+          "type": "heading",
+          "settings": {
+            "heading": "Image banner",
+            "heading_size": "h1"
+          }
+        },
+        "text_QHyqbG": {
+          "type": "text",
+          "settings": {
+            "text": "Give customers details about the banner image(s) or content on the template.",
+            "text_style": "body"
+          }
+        },
+        "buttons_LjLTTe": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "Button label",
+            "button_link_1": "",
+            "button_style_secondary_1": false,
+            "button_label_2": "Button label",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_Dy3zmH",
+        "text_QHyqbG",
+        "buttons_LjLTTe"
+      ],
+      "disabled": true,
+      "name": "t:sections.image-banner.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/Snowe_hero_linensale_1024x_2893ff90-1998-47b1-80b7-c627d1d42d62.webp",
+        "image_2": "shopify://shop_images/2_BF_SALE_BANNER_1920x1439_1024x_03a4cd78-2043-4b04-b4f4-61ebb37f0f38.jpg",
+        "image_overlay_opacity": 0,
+        "image_height": "medium",
+        "image_behavior": "none",
+        "desktop_content_position": "middle-right",
+        "desktop_content_alignment": "center",
+        "show_text_box": false,
+        "color_scheme": "scheme-3",
+        "stack_images_on_mobile": true,
+        "mobile_content_alignment": "center",
+        "show_text_below": false
+      }
+    },
+    "slideshow_jfVEga": {
+      "type": "slideshow",
+      "blocks": {
+        "slide_iWggnB": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Homepage_Slider_Refresh-Recovered_16_575x_e20dc4a2-06dc-41bd-be03-bed3838d452c.webp",
+            "image_overlay_opacity": 0,
+            "heading": "<strong>SLEEP</strong>",
+            "heading_size": "h0",
+            "subheading": "Everything good happens in bed.Especially with decadent,hand-crafted bed.",
+            "button_label": "SHOP ALL",
+            "link": "shopify://collections/sleep",
+            "button_style_secondary": true,
+            "show_text_box": true,
+            "box_align": "middle-right",
+            "text_alignment": "center",
+            "text_alignment_mobile": "center",
+            "color_scheme": "scheme-1"
+          }
+        },
+        "slide_iNCzh8": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Snowe_Bathe_Towels_CLP_Banner_rl_1300x_3c1c095d-9bc2-446e-8c5c-8bbae8d5a4df.webp",
+            "image_overlay_opacity": 0,
+            "heading": "<strong>BATHE</strong>",
+            "heading_size": "h0",
+            "subheading": "Softness addictions are real.Our seriously soft,ultra-absorbant bath linens aren't helping.",
+            "button_label": "SHOP ALL",
+            "link": "shopify://collections/bath",
+            "button_style_secondary": true,
+            "show_text_box": true,
+            "box_align": "middle-right",
+            "text_alignment": "center",
+            "text_alignment_mobile": "center",
+            "color_scheme": "scheme-1"
+          }
+        },
+        "slide_w8XP9F": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Homepage_Slider_Refresh_Eat_Static_575x_508ebc30-f6af-485c-9569-79aeb8fd15c7.webp",
+            "image_overlay_opacity": 0,
+            "heading": "<strong>EAT</strong>",
+            "heading_size": "h0",
+            "subheading": "From coq au vin to coco Puffs,our dinnerware,serveware and flatware work for whatever's on your menu.",
+            "button_label": "SHOP ALL",
+            "link": "shopify://collections/eat",
+            "button_style_secondary": true,
+            "show_text_box": true,
+            "box_align": "middle-right",
+            "text_alignment": "center",
+            "text_alignment_mobile": "center",
+            "color_scheme": "scheme-1"
+          }
+        },
+        "slide_EHXynb": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/2021.10.21.SnoweMiami0755_2048x2048_1ac8c94d-3615-41a6-aa60-57a923ee249c.jpg",
+            "image_overlay_opacity": 0,
+            "heading": "<strong>DECOR</strong>",
+            "heading_size": "h0",
+            "subheading": "Architectural forms and sumptuous shades. Oue finishing touches add an extra layer of oomph anywhare.",
+            "button_label": "SHOP ALL",
+            "link": "shopify://collections/decor-2",
+            "button_style_secondary": true,
+            "show_text_box": true,
+            "box_align": "middle-right",
+            "text_alignment": "center",
+            "text_alignment_mobile": "center",
+            "color_scheme": "scheme-1"
+          }
+        }
+      },
+      "block_order": [
+        "slide_iWggnB",
+        "slide_iNCzh8",
+        "slide_w8XP9F",
+        "slide_EHXynb"
+      ],
+      "name": "t:sections.slideshow.presets.name",
+      "settings": {
+        "layout": "grid",
+        "slide_height": "small",
+        "slider_visual": "dots",
+        "auto_rotate": false,
+        "change_slides_speed": 5,
+        "image_behavior": "none",
+        "show_text_below": true,
+        "accessibility_info": "Slideshow about our brand"
+      }
+    },
+    "rich_text_hREnFK": {
+      "type": "rich-text",
+      "blocks": {
+        "text_RQCPqR": {
+          "type": "text",
+          "settings": {
+            "text": "<h5><strong>BEST SELLERS</strong></h5>"
+          }
+        },
+        "heading_YwqMx3": {
+          "type": "heading",
+          "settings": {
+            "heading": "<strong>Sometimes, it's a popularity contest</strong>",
+            "heading_size": "h1"
+          }
+        }
+      },
+      "block_order": [
+        "text_RQCPqR",
+        "heading_YwqMx3"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "left",
+        "content_alignment": "left",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "featured_collection_eYMyt6": {
+      "type": "featured-collection",
+      "name": "t:sections.featured-collection.presets.name",
+      "settings": {
+        "collection": "all",
+        "products_to_show": 25,
+        "title": "",
+        "heading_size": "h1",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "columns_desktop": 4,
+        "enable_desktop_slider": true,
+        "full_width": true,
+        "show_view_all": false,
+        "view_all_style": "solid",
+        "color_scheme": "",
+        "image_ratio": "portrait",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "none",
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 0,
+        "padding_bottom": 36
+      }
+    },
+    "image_with_text_cnCY9J": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_P943hF": {
+          "type": "heading",
+          "settings": {
+            "heading": "<strong>Meet your future-proof heirlooms</strong>",
+            "heading_size": "h1"
+          }
+        },
+        "text_xTEDDa": {
+          "type": "text",
+          "settings": {
+            "text": "<p>We use irresistible materials and inventive craftsmanship to turn essentials into infatuations.</p>",
+            "text_style": "body"
+          }
+        },
+        "button_7C9CJN": {
+          "type": "button",
+          "settings": {
+            "button_label": "SEE HOW WE DO IT",
+            "button_link": "shopify://pages/show",
+            "button_style_secondary": true
+          }
+        }
+      },
+      "block_order": [
+        "heading_P943hF",
+        "text_xTEDDa",
+        "button_7C9CJN"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/SNOWE_Holiday20_EAT_Hero_1724-copy_2048x2048_71012b0d-c539-4e62-a3f6-bab33a9ba266.webp",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "image_behavior": "none",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "scheme-1",
+        "color_scheme": "scheme-f028aafd-bc4d-4be2-96b8-f232e287636a",
+        "padding_top": 36,
+        "padding_bottom": 0
+      }
+    },
+    "img_text_cg4WJ9": {
+      "type": "img-text",
+      "blocks": {
+        "heading_qj3ECC": {
+          "type": "heading",
+          "settings": {
+            "heading": "Image Text",
+            "heading_size": "h1"
+          }
+        },
+        "text_UWwTa3": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Add Text here.</p>",
+            "text_style": "body"
+          }
+        },
+        "button_mp7Ddh": {
+          "type": "button",
+          "settings": {
+            "button_label": "Button",
+            "button_link": "",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_qj3ECC",
+        "text_UWwTa3",
+        "button_mp7Ddh"
+      ],
+      "disabled": true,
+      "name": "Image Text",
+      "settings": {
+        "image": "shopify://shop_images/trade-press-4_400x_bcf01c82-005b-44f1-bbd6-8c8a1d90bd5c.webp",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "image_behavior": "none",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "",
+        "color_scheme": "scheme-3",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "video_NBfcDT": {
+      "type": "video",
+      "disabled": true,
+      "name": "t:sections.video.presets.name",
+      "settings": {
+        "heading": "Video",
+        "heading_size": "h1",
+        "enable_video_looping": false,
+        "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+        "description": "",
+        "full_width": false,
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "video_text_rnBBj3": {
+      "type": "video-text",
+      "blocks": {
+        "heading_BTh8bq": {
+          "type": "heading",
+          "settings": {
+            "heading": "Video With Text.",
+            "heading_size": "h1"
+          }
+        },
+        "text_7Jyip4": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Add text here.</p>",
+            "text_style": "body"
+          }
+        },
+        "button_qzYmrh": {
+          "type": "button",
+          "settings": {
+            "button_label": "Button",
+            "button_link": "",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_BTh8bq",
+        "text_7Jyip4",
+        "button_qzYmrh"
+      ],
+      "name": "Video With Text",
+      "settings": {
+        "video": "shopify://files/videos/SoftGoodsHomePageAlt1_rl.mp4",
+        "height": "adapt",
+        "width": "medium",
+        "layout": "video_first",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "",
+        "color_scheme": "scheme-1",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "slideshow_WgVq84",
+    "multicolumn_xdhpyx",
+    "rich_text_76XUGH",
+    "image_with_text_bw3HKH",
+    "image_banner_ka4gqt",
+    "slideshow_jfVEga",
+    "rich_text_hREnFK",
+    "featured_collection_eYMyt6",
+    "image_with_text_cnCY9J",
+    "img_text_cg4WJ9",
+    "video_NBfcDT",
+    "video_text_rnBBj3"
+  ]
+}
