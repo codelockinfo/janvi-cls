@@ -1,0 +1,331 @@
+{{ 'video-text.css' | asset_url | stylesheet_tag }}
+
+{% style %}
+  .video-text-section-{{ section.id }}-padding{
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+  }
+
+  @media screen and (min-width: 750px){
+    .video-text-section-{{ section.id }}-padding{
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{% endstyle %}
+
+{%- liquid
+  if section.settings.color_scheme == section.settings.section_color_scheme and section.settings.content_layout == 'no-overlap'
+    assign remove_color_classes = true
+  endif
+-%}
+
+<div class="video-text-section-{{ section.id }}-padding gradient color-{{ section.settings.section_color_scheme }}">
+  <div class="page-width">
+    <div class="video-with-text video-with-text--{{ section.settings.content_layout }}">
+      <div class="video-with-text__grid grid grid--gapless grid--1-col grid--{% if section.settings.width == 'medium' %}2-col-tablet{% else %}3-col-tablet{% endif %} {% if section.settings.layout == 'text_first' %}video_with_text__grid--reverse{% endif %}">
+        <div class="video-with-text__media-item image-with-text__media-item--{{ section.settings.width }} grid__item">
+          <div class="video-with-text__media video-with-text__media--{{ section.settings.height }} global-media-settings{% unless  remove_color_classes %}gradient color-{{ section.settings.color_scheme }}{% else %}background-transparent{% endunless %}">
+            {% if section.settings.video != blank %}
+              {{ section.settings.video | media_tag }}
+            {% else %}
+              {{ 'hero-apparel-3' | placeholder_svg_tag: 'placeholder-svg' }}
+            {% endif %}          
+          </div>
+        </div>
+
+        <div class="video-with-text__text-item grid__item">
+          <div class="video-with-text__content video-with-text__content--{{ section.settings.desktop_content_position }} video-with-text__content--desktop-{{ section.settings.desktop_content_alignment }} video-with-text__content--mobile-{{ section.settings.mobile_content_alignment }} content-container{% unless remove_color_classes %}gradient color-{{ section.settings.color_scheme }}{% else %}background-transparent{% endunless %}">
+            {% for block in section.blocks %}
+              {% case block.type %}
+              {% when 'heading' %}
+                <h2 class="video-with-text__heading {{ block.settings.heading_size }}">
+                  {{ block.settings.heading }}
+                </h2>
+              {% when 'caption' %}
+                <p class="video-with-text__text--caption {{ block.settings.text_style }} {{ block.settings.text_style }}--{{ block.settings.text_size }}">
+                  {{ block.settings.caption }}
+                </p>
+              {% when 'text' %}
+                <div class="video-with-text__text {{ block.settings.text_style }}">
+                  {{ block.settings.text }}
+                </div>
+              {% when 'button' %}
+                {% if block.settings.button_label != blank %}
+                  <a {% if block.settings.button_link == blank %}
+                      role="link" aria-disabled="true"
+                    {% else %}
+                      href="{{ block.settings.button_link }}"
+                    {% endif %}
+                    class="button 
+                      {% if block.settings.button_style_secondary %} 
+                        button--secondary 
+                      {% else %} 
+                        button--primary
+                      {% endif %}"
+                    >
+                      {{ block.settings.button_label }}
+                    </a>
+                {% endif %}
+              {% endcase %}
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Video With Text",
+  "tag": "section",
+  "class": "video-text-setion",
+  "settings": [
+    {
+      "type": "video",
+      "id": "video",
+      "label": "Video"
+    },
+    {
+      "type": "select",
+      "id": "height",
+      "options": [
+        {"label": "Adapt to video", "value": "adapt"},
+        {"label": "Small", "value": "small"},
+        {"label": "Medium", "value": "medium"},
+        {"label": "Large", "value": "large"}
+      ],
+      "label": "Height",
+      "default": "adapt"
+    },
+    {
+      "type": "select",
+      "id": "width",
+      "options": [
+        {"label": "Small", "value": "small"},
+        {"label": "Medium", "value": "medium"},
+        {"label": "Large", "value": "large"}
+      ],
+      "label": "Width",
+      "default": "medium"
+    },
+    {
+      "type": "select",
+      "id": "layout",
+      "options": [
+        {"label": "Left", "value": "video_first"},
+        {"label": "Right", "value": "text_first"}
+      ],
+      "label": "Video Position",
+      "default": "video_first"
+    },
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "select",
+      "id": "content_layout",
+      "options": [
+        {"label": "No overlap", "value": "no-overlap"},
+        {"label": "Overlap", "value": "overlap"}
+      ],
+      "label": "Layout",
+      "default": "no-overlap"
+    },
+    {
+      "type": "select",
+      "id": "desktop_content_position",
+      "options": [
+        {"label": "Top", "value": "top"},
+        {"label": "Middle", "value": "middle"},
+        {"label": "Bottom", "value": "bottom"}
+      ],
+      "label": "Position",
+      "default": "top"
+    },
+    {
+      "type": "select",
+      "id": "desktop_content_alignment",
+      "options": [
+        {"label": "Left", "value": "left"},
+        {"label": "Center", "value": "center"},
+        {"label": "Right", "value": "right"}
+      ],
+      "label": "Content Alignment",
+      "default": "left"
+    },
+    {
+      "type": "select",
+      "id": "mobile_content_alignment",
+      "options": [
+        {"label": "Left", "value": "left"},
+        {"label": "Center", "value": "center"},
+        {"label": "Right", "value": "right"}
+      ],
+      "label": "Mobile Alignment",
+      "default": "left"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color_scheme",
+      "id": "section_color_scheme",
+      "label": "Color scheme",
+      "default": "scheme1"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Container color scheme",
+      "default": "scheme1"
+    },
+    {
+      "type": "header",
+      "content": "Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "unit": "px",
+      "step": 4,
+      "label": "Top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "unit": "px",
+      "step": 4,
+      "label": "Bottom",
+      "default": 36
+    }
+  ],
+  "blocks": [
+    {
+      "type": "heading",
+      "name": "Heading",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "inline_richtext",
+          "id": "heading",
+          "label": "Heading",
+          "default": "Video With Text."
+        },
+        {
+          "type": "select",
+          "id": "heading_size",
+          "options": [
+            {"label": "Small", "value": "h2"},
+            {"label": "Medium", "value": "h1"},
+            {"label": "Large", "value": "h0"},
+            {"label": "Extra large", "value": "hxl"},
+            {"label": "Extra extra large", "value": "hxxl"}
+          ],
+          "label": "Heading Size",
+          "default": "h1"
+        }
+      ]
+    },
+    {
+      "type": "caption",
+      "name": "Caption",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "caption",
+          "label": "Caption",
+          "default": "Add Caption"
+        },
+        {
+          "type": "select",
+          "id": "text_style",
+          "options": [
+            {"label": "Subtitle", "value": "subtitle"},
+            {"label": "Uppar Case", "value": "caption-with-letter-spacing"}
+          ],
+          "label": "Style",
+          "default": "caption-with-letter-spacing"
+        },
+        {
+          "type": "select",
+          "id": "text_size",
+          "options": [
+            {"label": "Small", "value": "small"},
+            {"label": "Medium", "value": "medium"},
+            {"label": "Large", "value": "large"}
+          ],
+          "label": "Caption Size",
+          "default": "medium"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "name": "Text",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text",
+          "default": "<p>Add text here.</p>"
+        },
+        {
+          "type": "select",
+          "id": "text_style",
+          "options": [
+            {"label": "Body", "value": "body"},
+            {"label": "Subtitle", "value": "subtitle"}
+          ],
+          "label": "Style",
+          "default": "body"
+        }
+      ]
+    },
+    {
+      "type": "button",
+      "name": "Button",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "button_label",
+          "label": "Label",
+          "default": "Button"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Link",
+        },
+        {
+          "type": "checkbox",
+          "id": "button_style_secondary",
+          "label": "Outline",
+          "default": false
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Video With Text",
+      "blocks": [
+        {"type": "heading"},
+        {"type": "text"},
+        {"type": "button"}
+      ]
+    }
+  ]
+}
+{% endschema %}

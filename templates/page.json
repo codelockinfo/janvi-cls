@@ -1,0 +1,436 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "image_banner_TMXDpQ": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_jzcV3P": {
+          "type": "heading",
+          "settings": {
+            "heading": "<strong>Buy Now, Pay Later</strong>",
+            "heading_size": "h1"
+          }
+        }
+      },
+      "block_order": [
+        "heading_jzcV3P"
+      ],
+      "name": "t:sections.image-banner.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/Snowe_KlarnaCLP_Header.webp",
+        "image_overlay_opacity": 0,
+        "image_height": "medium",
+        "image_behavior": "none",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "show_text_box": false,
+        "color_scheme": "scheme-3",
+        "stack_images_on_mobile": true,
+        "mobile_content_alignment": "center",
+        "show_text_below": true
+      }
+    },
+    "rich_text_gkBid4": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_m3zUVq": {
+          "type": "heading",
+          "settings": {
+            "heading": "<strong>4 Interest-Free Payments</strong>",
+            "heading_size": "h1"
+          }
+        },
+        "text_K8a7g8": {
+          "type": "text",
+          "settings": {
+            "text": "<p>We’ve partnered with Klarna to give you a better shopping experience. When you choose Klarna at checkout, you’ll get the option to shop now and pay later for your purchase. Split your purchase into 4 interest-free payments so you can spread the cost of your purchase over time.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_m3zUVq",
+        "text_K8a7g8"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "rich_text_D7KRQj": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_t9jezp": {
+          "type": "heading",
+          "settings": {
+            "heading": "<strong>How It Works</strong>",
+            "heading_size": "h0"
+          }
+        }
+      },
+      "block_order": [
+        "heading_t9jezp"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-2",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "multicolumn_8EynWH": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_xBPnDi": {
+          "type": "column",
+          "settings": {
+            "title": "Step 1: Shop at Snowe",
+            "text": "<p>Add items to your cart and head to checkout as you normally would.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_Q97xxb": {
+          "type": "column",
+          "settings": {
+            "title": "Step 2: Select Klarna at Checkout",
+            "text": "<p>Enter the credit or debit card of your choice. Pay 25% upfront.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_EzQJXj": {
+          "type": "column",
+          "settings": {
+            "title": "Step 3: Auto Pay Every 2 Weeks",
+            "text": "<p>The remaining 3 payments are collected every 2 weeks. No interest or added fees when you pay on time.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_xBPnDi",
+        "column_Q97xxb",
+        "column_EzQJXj"
+      ],
+      "name": "t:sections.multicolumn.presets.name",
+      "settings": {
+        "title": "",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "button_label": "SHOP BESTSELLERS",
+        "button_link": "shopify://pages/best-sellers",
+        "columns_desktop": 3,
+        "column_alignment": "center",
+        "background_style": "none",
+        "color_scheme": "scheme-2",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "multicolumn_4d4HJn": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_EetJBe": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/Snowe_KlarnaCLP_1_400x_c7346940-c5c8-4758-9bac-019178088b92.webp",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_cwUXfk": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/Snowe_KlarnaCLP_2_400x_0c4cef1f-585f-4903-b9b4-0c65e9e13f08.webp",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_dbGJ7t": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/Snowe_KlarnaCLP_3_400x_f8d4cf89-3d36-47ca-9653-d238f4d76868.webp",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_UQfhG4": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/Snowe_KlarnaCLP_4_400x_6967a545-3468-4d60-a2eb-959f1628206d.webp",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_EetJBe",
+        "column_cwUXfk",
+        "column_dbGJ7t",
+        "column_UQfhG4"
+      ],
+      "name": "t:sections.multicolumn.presets.name",
+      "settings": {
+        "title": "",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "button_label": "",
+        "button_link": "",
+        "columns_desktop": 4,
+        "column_alignment": "center",
+        "background_style": "none",
+        "color_scheme": "",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "multicolumn_AB9BRm": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_98AVi7": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/Vohgah_400x_5b0b03ab-18bb-48bc-a110-dacab48d4700.avif",
+            "title": "",
+            "text": "<p>\"The perfect additions to a couple’s first home.\"</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_abAJ8C": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/fahstcom_400x_0aab4d80-ee73-4eb8-aca6-0b6aacb73a66.avif",
+            "title": "",
+            "text": "<p>\"When it comes to the design of SNOWE’s products, nothing goes unconsidered.\"</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_J47b4p": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/apartment-therapy-logo_400x_2f8c3534-1044-4f06-a70c-2d3847d4c8e4.avif",
+            "title": "",
+            "text": "<p>\"Snowe creates gorgeous essentials for every room of the house.\"</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_A8RdMT": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/AyyDee_400x_70138de3-8507-47d4-a4db-d64d4769a35b.avif",
+            "title": "",
+            "text": "<p>\"Your new favorite for home essentials.\"</p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_98AVi7",
+        "column_abAJ8C",
+        "column_J47b4p",
+        "column_A8RdMT"
+      ],
+      "name": "t:sections.multicolumn.presets.name",
+      "settings": {
+        "title": "",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "button_label": "",
+        "button_link": "",
+        "columns_desktop": 4,
+        "column_alignment": "center",
+        "background_style": "none",
+        "color_scheme": "",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "collapsible_content_6j84x4": {
+      "type": "collapsible-content",
+      "blocks": {
+        "collapsible_row_dVpJTK": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How do I use Klarna?",
+            "icon": "none",
+            "row_content": "<p>We’ve partnered with Klarna to allow you to split your purchase into 4 interest-free payments. Add your items to cart as you normally would, then in Checkout select “Buy now, pay later with Klarna” at the Payment stage. Enter the credit or debit card of your choice for automatic payments every two weeks. There is no interest or added fees when you pay on time.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_Ykx9qd": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "When is my payment due?",
+            "icon": "none",
+            "row_content": "<p>You will receive an email from Klarna with your due date and payment information. If you are unsure when your payment is due, you can view your payments and check the due date in the Klarna app or here.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_Q7pQeJ": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Is there a late fee for 4 interest-free installments?",
+            "icon": "none",
+            "row_content": "<p>If Klarna is unable to collect a biweekly payment on the scheduled day, they will try again. If the payment is unsuccessful when they retry, a late fee and the missed payment will be added to the next scheduled payment. They will send you an email notification if your payment was unsuccessful. You also have the option to pay an installment early or pay the full amount. In the app, click on My Klarna &gt; Payment &gt; Select the order and click Payment Options. Please note that Snowe does not have the ability to modify or waive Klarna late fees.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_cHkUax": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What happens if I make a return?",
+            "icon": "none",
+            "row_content": "<p>If you need to return part or all of your order, Klarna will issue you a new statement. Simply email us (hello@snowehome.com) with your order number, and we’ll send you a return label and instructions. Log into your Klarna account, select “report a return”, and Klarna will pause your statement. As soon as we have processed your return, Klarna will send an adjusted invoice.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_XfnQ9Q": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Who should I reach out to if I have questions?",
+            "icon": "none",
+            "row_content": "<p>If you are having issues with your Klarna account or payment, you can reach Klarna anytime on their website or by downloading the Klarna app. Please note that Snowe does not have the ability to alter payments, due dates, or late fees.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_J4zGh6": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "I have more questions about Klarna.",
+            "icon": "none",
+            "row_content": "<p>Don’t see your question here? Check out Klarna’s full FAQ page.<br/><br/></p>",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "collapsible_row_dVpJTK",
+        "collapsible_row_Ykx9qd",
+        "collapsible_row_Q7pQeJ",
+        "collapsible_row_cHkUax",
+        "collapsible_row_XfnQ9Q",
+        "collapsible_row_J4zGh6"
+      ],
+      "name": "t:sections.collapsible_content.presets.name",
+      "settings": {
+        "caption": "",
+        "heading": "Frequently Asked Questions",
+        "heading_size": "h1",
+        "heading_alignment": "center",
+        "layout": "none",
+        "container_color_scheme": "",
+        "color_scheme": "",
+        "open_first_collapsible_row": false,
+        "image_ratio": "adapt",
+        "desktop_layout": "image_second",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "image_with_text_WPjP7z": {
+      "type": "image-with-text",
+      "blocks": {
+        "text_RE7jUz": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>BUY NOW, PAY LATER</strong></p>",
+            "text_style": "body"
+          }
+        },
+        "heading_NVNwaR": {
+          "type": "heading",
+          "settings": {
+            "heading": "Fan Favorites For a Reason",
+            "heading_size": "h1"
+          }
+        },
+        "button_EnP8W8": {
+          "type": "button",
+          "settings": {
+            "button_label": "SHOP BEST SELLERS",
+            "button_link": "shopify://pages/best-sellers",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "text_RE7jUz",
+        "heading_NVNwaR",
+        "button_EnP8W8"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/Linen_KLP_recirc_1100x_f3003c75-0cae-452e-8f0b-7be1093b6a5a.webp",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "text_first",
+        "image_behavior": "none",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "center",
+        "mobile_content_alignment": "center",
+        "section_color_scheme": "",
+        "color_scheme": "scheme-2",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "main",
+    "image_banner_TMXDpQ",
+    "rich_text_gkBid4",
+    "rich_text_D7KRQj",
+    "multicolumn_8EynWH",
+    "multicolumn_4d4HJn",
+    "multicolumn_AB9BRm",
+    "collapsible_content_6j84x4",
+    "image_with_text_WPjP7z"
+  ]
+}

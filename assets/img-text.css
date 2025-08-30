@@ -1,0 +1,111 @@
+.img-text-section img{
+  width: 100%;
+}
+
+.image-with-text__media--small img{
+  height: 40vw;
+  object-fit: cover;
+}
+
+.image-with-text__media--medium img{
+  height:70vw;
+  object-fit: cover;
+}
+
+.image-with-text__media--large img{
+  height:80vw;
+  object-fit: cover;
+}
+  
+  .image-with-text__content--top{
+    align-self:flex-start;
+    justify-content: flex-start;
+  }
+
+  .image-with-text__content--bottom{
+    align-self: flex-end;
+    justify-content: flex-end;
+  }
+
+  .image-with-text__content--desktop-left{
+    text-align: left;
+    align-self: flex-start;
+  }
+
+  .image-with-text__content--desktop-center{
+    text-align: center;
+    align-self: center;
+  }
+
+  .image-with-text__content--desktop-right{
+    text-align: right;
+    align-self: flex-end;
+  }
+
+  .image-with-text__content--mobile-center{
+    text-align: center;
+    align-self: center;
+  }
+
+  .image-with-text__content--mobile-right{
+    text-align: right;
+    align-self: flex-end;
+  }
+
+
+@media screen and (min-width: 750px) {
+
+  .image-with-text__grid--reverse{
+    flex-direction: row-reverse;
+  }
+
+  .image-with-text__media--small img{
+    height: 30vw;
+    object-fit: cover;
+  }
+
+  .image-with-text__media--medium img{
+    height:50vw;
+    object-fit: cover;
+  }
+
+  .image-with-text__media--large img{
+    height:60vw;
+    object-fit: cover;
+  }
+  
+  .image-with-text__content--top{
+    align-self:flex-start;
+    justify-content: flex-start;
+  }
+
+  .image-with-text__content--bottom{
+    align-self: flex-end;
+    justify-content: flex-end;
+  }
+
+  .image-with-text__content--desktop-left{
+    text-align: left;
+    align-self: flex-start;
+  }
+
+  .image-with-text__content--desktop-center{
+    text-align: center;
+    align-self: center;
+  }
+
+  .image-with-text__content--desktop-right{
+    text-align: right;
+    align-self: flex-end;
+  }
+
+    .image-with-text__content--mobile-center{
+    text-align: center;
+    align-self: center;
+  }
+
+  .image-with-text__content--mobile-right{
+    text-align: right;
+    align-self: flex-end;
+  }
+}

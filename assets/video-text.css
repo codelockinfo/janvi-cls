@@ -1,0 +1,111 @@
+.video-with-text__content {
+    padding-left: 5vw;
+    height:100%
+}
+
+.video-with-text__media video {
+    width: 100%;
+}
+
+.video-with-text__media--small video {
+    height: 30vw;
+    object-fit: cover;
+}
+
+.video-with-text__media--medium video {
+    height: 50vw;
+    object-fit: cover;
+}
+
+.video-with-text__media--large video {
+    height: 60vw;
+    object-fit: cover;
+}
+
+.video-with-text__content--top{
+    align-self: flex-start;
+    justify-content: flex-start;
+}
+
+
+.video-with-text__content--bottom{
+    align-self: flex-end;
+    justify-content: flex-end;
+}
+
+.video-with-text__content--mobile-left{
+    text-align: left;
+    align-self: flex-start;
+}
+
+.video-with-text__content--mobile-center{
+    text-align:center;
+    align-self: center;
+}
+
+.video-with-text__content--mobile-right{
+    text-align: right;
+    align-self: flex-end;
+}
+  
+@media screen and (min-width: 750px) {
+    .video-with-text__media--small video {
+        height: 20vw;
+        object-fit: cover;
+    }
+
+    .video-with-text__media--medium video {
+        height: 40vw;
+        object-fit: cover;
+    }
+
+    .video-with-text__media--large video {
+        height: 50vw;
+        object-fit: cover;
+    }
+
+    .video_with_text__grid--reverse{
+        flex-direction: row-reverse;
+    }
+
+    .video-with-text__content--top{
+        align-self: flex-start;
+        justify-content: flex-start;
+    }
+
+    .video-with-text__content--bottom{
+        align-self: flex-end;
+        justify-content: flex-end;
+    }
+
+    .video-with-text__content--desktop-left{
+        text-align: left;
+        align-self: flex-start;
+    }
+
+    .video-with-text__content--desktop-center{
+        text-align: center;
+        align-self: center;
+    }
+
+    .video-with-text__content--desktop-right{
+        text-align: right;
+        align-self: flex-end;
+    }
+ 
+    .video-with-text__content--mobile-left{
+        text-align: left;
+        align-self: flex-start;
+    }
+
+    .video-with-text__content--mobile-center{
+        text-align:center;
+        align-self: center;
+    }
+
+    .video-with-text__content--mobile-right{
+        text-align: right;
+        align-self: flex-end;
+    }
+
+}
