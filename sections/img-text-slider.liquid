@@ -1,0 +1,205 @@
+{{ 'img-text-slider.css' | asset_url | stylesheet_tag }}
+
+<div class="img-text-slider-section">
+    <div class="page-width">
+        <div class="img-text-slider">
+            <div class="img-text-slider__grid grid grid--gapless">
+                <div class="img-text-slider__media-item grid_item">
+                    <div class="img-text-slider__media">
+                        {% if section.settings.image != blank %}
+                            <img src="{{ section.settings.image | image_url: width: 1000 }}">
+                        {% else %}
+                            {{ 'hero-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
+                        {% endif %}
+                    </div>
+                </div>
+
+                <div class="img-text-slider__container grid_item">
+                    <div class="img-text-slider__media-item-1">
+                        <div class="img-text-slider__media-1">
+                            {% for block in section.blocks %}
+                            {% if block.settings.image_2 != blank %}
+                                <img src="{{ block.settings.image_2 | image_url: width: 1000 }}">            
+                            {% endif %}
+                        {% endfor %}
+                        </div>
+                    </div>
+
+                    <div class="img-text-slider__text-media">
+                        <div class="img-text-slider__content">
+                            {% for block in section.blocks %}
+                                {% case block.type %}
+                                    {% when 'heading' %}
+                                    <h2 class="image-with-text__heading {{ block.settings.heading_size }}">
+                                        {{ block.settings.heading }}
+                                    </h2>
+                                    {% when 'caption' %}
+                                    <p class="image-with-text__text--caption {{ block.settings.text_style }} {{ block.settings.text_style }}--{{ block.settings.text_size }}">
+                                        {{ block.settings.caption}}
+                                    </p>
+                                    {% when 'text' %}
+                                    <div class="image-with-text__text {{ block.settings.text_style }}" >
+                                        {{ block.settings.text }}
+                                    </div>
+                                    {% when 'button' %}
+                                    {% if block.settings.button_label != blank %}
+                                    <a {% if block.settings.button_link == blank %}
+                                        role="link" aria-disabled="true"
+                                        {% else %}
+                                        href="{{ block.settings.button_link }}"
+                                        {% endif %} 
+                                        class="button {% if block.settings.button_style_secondary %} button--secondary {% else %} button--primary {% endif %}"
+                                    >
+                                        {{ block.settings.button_label }}
+                                    </a>
+                                    {% endif %}
+                                {% endcase %}
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% schema %}
+{
+    "name": "Image With Text Slider",
+    "tag": "section",
+    "class": "img-text-slider-section",
+    "settings": [
+        {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+        }
+    ],
+    "blocks": [
+        {
+            "type": "image",
+            "name": "Image",
+            "limit": 1,
+            "settings": [
+                {
+                    "type": "image_picker",
+                    "id": "image_2",
+                    "label": "Image"
+                }
+            ]
+        },
+        {
+            "type": "heading",
+            "name": "Heading",
+            "limit": 1,
+            "settings": [
+                {
+                "type": "inline_richtext",
+                "id": "heading",
+                "label": "Heading",
+                "default": "Image Text Slider"
+                },
+                {
+                "type": "select",
+                "id": "heading_size",
+                "options": [
+                    {"label": "Small", "value": "h2"},
+                    {"label": "Medium", "value": "h1"},
+                    {"label": "Large", "value": "h0"},
+                    {"label": "Extra large", "value": "hxl"},
+                    {"label": "Extra exra large", "value": "hxxl"}
+                ],
+                "default": "h1",
+                "label": "Heading Size"
+                }
+            ]
+        },
+        {
+            "type": "caption",
+            "name": "Caption",
+            "limit": 1,
+            "settings": [
+                {
+                "type": "text",
+                "id": "caption",
+                "label": "Caption",
+                "default": "Add Caption"
+                },
+                {
+                "type": "select",
+                "id": "text_style",
+                "options": [
+                    {"label": "Subtitle", "value": "subtitle"},
+                    {"label": "Uppar Case", "value": "caption-with-letter-spacing"}
+                ],
+                "label": "Style",
+                "default": "caption-with-letter-spacing"
+                },
+                {
+                "type": "select",
+                "id": "text_size",
+                "options": [
+                    {"label": "Small", "value": "small"},
+                    {"label": "Medium", "value": "medium"},
+                    {"label": "Large", "value": "large"}
+                ],
+                "label": "Caption Size",
+                "default" : "medium"
+                }
+            ]
+        },
+        {
+            "type": "text",
+            "name": "Text",
+            "limit": 1,
+            "settings": [
+                {
+                "type": "richtext",
+                "id": "text",
+                "label": "Text",
+                "default": "<p>Add Text here.</p>"
+                },
+                {
+                "type": "select",
+                "id": "text_style",
+                "options": [
+                    {"label": "Body", "value": "body"},
+                    {"label": "Subtitle", "value": "subtitle"}
+                ],
+                "label": "Style",
+                "default": "body"
+                }
+            ]
+        },
+        {
+            "type": "button",
+            "name": "Button",
+            "limit": 1,
+            "settings": [
+                {
+                "type": "text",
+                "id": "button_label",
+                "label": "Button Label",
+                "default": "Button"
+                },
+                {
+                "type": "url",
+                "id": "button_link",
+                "label": "Button Link"
+                },
+                {
+                "type": "checkbox",
+                "id": "button_style_secondary",
+                "label": "Outline Button",
+                "default": false
+                }
+            ]
+        }
+    ],
+    "presets": [
+        {
+            "name": "Image With Text Slider"
+        }
+    ]   
+}
+{% endschema %}
