@@ -1,10 +1,12 @@
 .video-with-text__content {
     padding-left: 5vw;
+    padding-bottom: 3vw;
     height:100%
 }
 
 .video-with-text__media video {
     width: 100%;
+    display: block;
 }
 
 .video-with-text__media--small video {
@@ -23,14 +25,15 @@
 }
 
 .video-with-text__content--top{
-    align-self: flex-start;
-    justify-content: flex-start;
+    place-content: flex-start;
 }
 
+.video-with-text__content--middle{
+    place-content: center;
+}
 
 .video-with-text__content--bottom{
-    align-self: flex-end;
-    justify-content: flex-end;
+    place-content: flex-end;
 }
 
 .video-with-text__content--mobile-left{
@@ -46,6 +49,10 @@
 .video-with-text__content--mobile-right{
     text-align: right;
     align-self: flex-end;
+}
+
+.video-with-text__link {
+    color: white;
 }
   
 @media screen and (min-width: 750px) {
@@ -64,18 +71,8 @@
         object-fit: cover;
     }
 
-    .video_with_text__grid--reverse{
+    .video-with-text__grid--reverse{
         flex-direction: row-reverse;
-    }
-
-    .video-with-text__content--top{
-        align-self: flex-start;
-        justify-content: flex-start;
-    }
-
-    .video-with-text__content--bottom{
-        align-self: flex-end;
-        justify-content: flex-end;
     }
 
     .video-with-text__content--desktop-left{
@@ -93,26 +90,16 @@
         align-self: flex-end;
     }
  
-    .video-with-text__content--mobile-left{
-        text-align: left;
-        align-self: flex-start;
+    .grid--custom-large {
+        display: grid;
+        grid-template-columns: 70% 30%;
+    }
+    
+    .video-with-text__grid.large--reverse {
+        direction: rtl;
     }
 
-    .video-with-text__content--mobile-center{
-        text-align:center;
-        align-self: center;
+    .video-with-text__grid.large--reverse > * {
+        direction: ltr;
     }
-
-    .video-with-text__content--mobile-right{
-        text-align: right;
-        align-self: flex-end;
-    }
- .grid--custom-large {
-    display: grid;
-    grid-template-columns: 70% 30%;
-  }
-
-  .video_with_text__grid--reverse.grid--custom-large {
-    grid-template-columns: 30% 70%;
-  }
 }
