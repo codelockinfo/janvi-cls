@@ -1,0 +1,9 @@
+.collection-slider__products{
+    display: flex;
+    height: 30vw;
+    width: 20vw;
+}
+
+.collection-slider__heading{
+    margin-bottom: 10px;
+}

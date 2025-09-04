@@ -1,0 +1,296 @@
+{{ 'collection-slider.css' | asset_url | stylesheet_tag }}
+
+{% comment %} <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"> {% endcomment %}
+
+{%- style -%}
+  .collection-slider-section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .collection-slider-section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<div class="swiper myswiper">
+	<div class="swiper-wrapper">
+        <div class="swiper-slide">
+            <div class="collection-slider-section-{{ section.id }}-padding gradient color-{{ section.settings.color_scheme }}">
+                <div class="collection-slider {{ section.settings.products_to_show }} {% if section.settings.full_width %} collection--full-width {% endif %}">
+                    <div class="page-width">
+                        <div class="collection-slider__text">
+                            {% if section.settings.heading != blank %}
+                                <h2 class="collection-slider__heading {{ section.settings.heading_size }}">
+                                    {{ section.settings.heading }}
+                                </h2>
+                            {% endif %}
+
+                            {% if section.settings.description != blank %}
+                                <div class="collection-slider__description {{ section.settings.description_style }} ">
+                                    {{ section.settings.description }}
+                                </div>
+                            {% endif %}
+                        </div>
+                        <div class="collection-slider__products {{ section.settings.image_ratio }}">
+                            {% if section.settings.collection != blank %}
+                                {{ section.settings.collection }}
+                            {% else %}
+                                {{ 'product-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% comment %} <div class="swiper-button-next"> </div>
+    <div class="swiper-button-prev"> </div>
+    <div class="swiper-pagination"> </div> {% endcomment %}
+</div>
+
+{% comment %} <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+<script>
+	var swiper = new Swiper('.swiper-container', {
+      slidesPerView: 4,
+      spaceBetween: 30,
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    });
+</script> {% endcomment %}
+
+{% schema %}
+{
+    "name": "Collection Slider",
+    "class": "collection-slider-section",
+    "tag": "section",
+    "settings": [
+        {
+            "type": "collection",
+            "id" : "collection",
+            "label": "Collcetion"
+        },
+        {
+            "type": "range",
+            "id": "products_to_show",
+            "min": 2,
+            "max": 25,
+            "step": 1,
+            "label": "Product Count",
+            "default": 4
+        },
+        {
+            "type": "header",
+            "content": "Text"
+        },
+        {
+            "type": "inline_richtext",
+            "id": "heading",
+            "label": "Heading",
+            "default": "Heading"
+        },
+        {
+            "type": "select",
+            "id": "heading_size",
+            "options": [
+                {"label": "Small", "value": "h2"},
+                {"label": "Medium", "value": "h1"},
+                {"label": "Large", "value": "h0"},
+                {"label": "Extra large", "value": "hxl"},
+                {"label": "Extra extra large", "value": "hxxl"}
+            ],
+            "label": "Heading Size",
+            "default": "h1"
+        },
+        {
+            "type": "richtext",
+            "id": "description",
+            "label": "Description"
+        },
+        {
+            "type": "checkbox",
+            "id": "show_description",
+            "label": "Show collection description from admin",
+            "default": false
+        },
+        {
+            "type": "select",
+            "id": "description_style",
+            "options": [
+                {"label": "Body", "value": "body"},
+                {"label": "Subtitle", "value": "subtitle"},
+                {"label": "Upper case", "value": "uppercase"}
+            ],
+            "label": "Description Style",
+            "default": "body"
+        },
+        {
+            "type": "header",
+            "content": "Collection Layout"
+        },
+        {
+            "type": "range",
+            "id": "columns_desktop",
+            "min": 1,
+            "max": 6,
+            "step": 1,
+            "label": "Columns",
+            "default": 3
+        },
+        {
+            "type": "checkbox",
+            "id": "enable_desktop_slider",
+            "label": "Carousel",
+            "default": false
+        },
+        {
+            "type": "checkbox",
+            "id": "full_width",
+            "label": "Full width products",
+            "default": false
+        },
+        {
+            "type": "checkbox",
+            "id": "show_view_all",
+            "label": "'View all' button",
+            "default": true
+        },
+        {
+            "type": "select",
+            "id": "view_all_style",
+            "options": [
+                {"label": "Link", "value": "link"},
+                {"label": "Outline Button", "value": "outline"},
+                {"label": "Solid Button", "value": "solid"}
+            ],
+            "label": "'View all' style",
+            "default": "solid"
+        },
+        {
+            "type": "color_scheme",
+            "id": "color_scheme",
+            "label": "Color scheme",
+            "default": "scheme_1"
+        },
+        {
+            "type": "header",
+            "content": "Product card"
+        },
+        {
+            "type": "select",
+            "id": "image_ratio",
+            "options": [
+                {"label": "Adapt to image", "value": "adapt"},
+                {"label": "Potrait", "value": "potrait"},
+                {"label": "Square", "value": "square"}
+            ],
+            "label": "Image ratio",
+            "default": "adapt"
+        },
+        {
+            "type": "select",
+            "id": "image_shape",
+            "options": [
+                {"label": "Default", "value": "default"},
+                {"label": "Arch", "value": "arch"},
+                {"label": "Blob", "value": "blob"},
+                {"label": "Chevron left", "value": "chevronleft"},
+                {"label": "Chevron Right", "value": "chevronright"},
+                {"label": "Diamond", "value": "diamond"},
+                {"label": "Parallelogram", "value": "parallelogram"},
+                {"label": "Round", "value": "round"}
+            ],
+            "label": "Image shape",
+            "default": "default"
+        },
+        {
+            "type": "checkbox",
+            "id": "show_secondary_image",
+            "label": "Show second image in hover",
+            "default": false
+        },
+        {
+            "type": "checkbox",
+            "id": "show_vender",
+            "label": "Vender",
+            "default": false
+        },
+        {
+            "type": "checkbox",
+            "id": "show_rating",
+            "label": "Product rating",
+            "default": false
+        },
+        {
+            "type": "select",
+            "id": "quick_add",
+            "options": [
+                {"label": "None", "value": "none"},
+                {"label": "Standard", "value": "standard"},
+                {"label": "Bulk", "value": "bulk"}
+            ],
+            "label": "Quick add",
+            "default": "none"
+        },
+        {
+            "type": "header",
+            "content": "Mobile layout"
+        },
+        {
+            "type": "select",
+            "id": "columns_mobile",
+            "options": [
+                {"label": "1", "value": "1"},
+                {"label": "2", "value": "2"}
+            ],
+            "label": "Columns",
+            "default": "2"
+        },
+        {
+            "type": "checkbox",
+            "id": "swipe_on_mobile",
+            "label": "Carousel",
+            "default": false
+        },
+        {
+            "type": "header",
+            "content": "Padding"
+        },
+        {
+            "type": "range",
+            "id": "padding_top",
+            "min": 0,
+            "max": 100,
+            "step": 4,
+            "unit": "px",
+            "label": "Top",
+            "default":36
+        },
+        {
+            "type": "range",
+            "id": "padding_bottom",
+            "min": 0,
+            "max": 100,
+            "step": 4,
+            "unit": "px",
+            "label": "Bottom",
+            "default":36
+        }
+    ],
+    "presets": [
+        {
+            "name": "Collection Slider"
+        }
+    ]
+}
+{% endschema %}
