@@ -593,3 +593,12 @@
     clip-path: polygon(var(--shape--blob-5));
   }
 }
+
+.review {
+  padding-left: 5vw;
+  padding-right: 5vw;
+}
+
+.review h2{
+  text-align: center;
+}

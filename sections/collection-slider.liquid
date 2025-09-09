@@ -1,180 +1,6 @@
 {{ 'collection-slider.css' | asset_url | stylesheet_tag }}
 
-{% comment %} {%- style -%}
-  .collection-slider-section-{{ section.id }}-padding {
-    padding-top: {{ section.settings.padding_top }}px;
-    padding-bottom: {{ section.settings.padding_bottom }}px;
-  }
-
-  @media screen and (min-width: 750px) {
-    .collection-slider-section-{{ section.id }}-padding {
-      padding-top: {{ section.settings.padding_top }}px;
-      padding-bottom: {{ section.settings.padding_bottom }}px;
-    }
-  }
-{%- endstyle -%}
-
-<div class="swiper myswiper">
-	<div class="swiper-wrapper">
-        <div class="swiper-slide">
-            <div class="collection-slider-section-{{ section.id }}-padding gradient color-{{ section.settings.color_scheme }}">
-                <div class="collection-slider {{ section.settings.products_to_show }} {% if section.settings.full_width %} collection--full-width {% endif %}">
-                    <div class="page-width">
-                        <div class="collection-slider__text">
-                            {% if section.settings.heading != blank %}
-                                <h2 class="collection-slider__heading {{ section.settings.heading_size }}">
-                                    {{ section.settings.heading }}
-                                </h2>
-                            {% endif %}
-
-                            {% if section.settings.description != blank %}
-                                <div class="collection-slider__description {{ section.settings.description_style }} ">
-                                    {{ section.settings.description }}
-                                </div>
-                            {% endif %}
-                        </div>
-                        <div class="collection-slider__products {{ section.settings.image_ratio }}">
-                            {% if section.settings.collection != blank %}
-                                {{ section.settings.collection }}
-                            {% else %}
-                                {{ 'product-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
-                            {% endif %}
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div> {% endcomment %}
-
-
-
-   {% comment %} {%- style -%}
-  .section-{{ section.id }}-padding {
-    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
-    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
-  }
-
-  @media screen and (min-width: 750px) {
-    .section-{{ section.id }}-padding {
-      padding-top: {{ section.settings.padding_top }}px;
-      padding-bottom: {{ section.settings.padding_bottom }}px;
-    }
-  }
-{%- endstyle -%}
-
-{%- liquid
-  assign products_to_display = section.settings.collection.all_products_count
-  if section.settings.collection.all_products_count > section.settings.products_to_show
-    assign products_to_display = section.settings.products_to_show
-    assign more_in_collection = true
-  endif
-
-  assign columns_mobile_int = section.settings.columns_mobile | plus: 0
-  assign show_mobile_slider = false
-  if section.settings.swipe_on_mobile and products_to_display > columns_mobile_int
-    assign show_mobile_slider = true
-  endif
-
-  assign show_desktop_slider = false
-  if section.settings.enable_desktop_slider and products_to_display > section.settings.columns_desktop
-    assign show_desktop_slider = true
-  endif
--%}
-
-<div class="color-{{ section.settings.color_scheme }} isolate gradient">
-  <div class="collection{% if section.settings.quick_add == 'bulk' %} collection-quick-add-bulk{% endif %} section-{{ section.id }}-padding{% if section.settings.full_width %} collection--full-width{% endif %}" id="collection-{{ section.id }}" data-id="{{ section.id }}">
-
-    <div class="collection__title title-wrapper page-width{% if show_mobile_slider %} title-wrapper--self-padded-tablet-down{% endif %}{% if show_desktop_slider %} collection__title--desktop-slider{% endif %}">
-      {% if section.settings.heading != blank %}
-        <h2 class="title inline-richtext {{ section.settings.heading_size }}">{{ section.settings.heading }}</h2>
-      {% endif %}
-
-      {% if section.settings.description != blank or section.settings.show_description and section.settings.collection.description != empty %}
-        <div class="collection__description {{ section.settings.description_style }} rte">
-          {% if section.settings.show_description %}
-            {{ section.settings.collection.description }}
-          {% else %}
-            {{ section.settings.description }}
-          {% endif %}
-        </div>
-      {% endif %}
-    </div>
-
-    <slider-component class="slider-mobile-gutter{% if section.settings.full_width %} slider-component-full-width{% endif %}{% if show_mobile_slider == false %} page-width{% endif %}{% if show_desktop_slider == false and section.settings.full_width == false %} page-width-desktop{% endif %}{% if show_desktop_slider %} slider-component-desktop{% endif %}">
-      <ul
-        id="Slider-{{ section.id }}"
-        class="grid product-grid contains-card contains-card--product grid--{{ section.settings.columns_desktop }}-col-desktop grid--{{ section.settings.columns_mobile }}-col-tablet-down{% if show_mobile_slider or show_desktop_slider %} slider{% if show_desktop_slider %} slider--desktop{% endif %}{% if show_mobile_slider %} slider--tablet grid--peek{% endif %}{% endif %}"
-        role="list"
-        aria-label="{{ 'general.slider.name' | t }}"
-      >
-        {% assign skip_card_product_styles = false %}
-        {% if section.settings.collection.products.size > 0 %}
-          {% for product in section.settings.collection.products limit: section.settings.products_to_show %}
-            <li class="grid__item{% if show_mobile_slider or show_desktop_slider %} slider__slide{% endif %}">
-              {% render 'card-product',
-                card_product: product,
-                media_aspect_ratio: section.settings.image_ratio,
-                image_shape: section.settings.image_shape,
-                show_secondary_image: section.settings.show_secondary_image,
-                show_vendor: section.settings.show_vendor,
-                show_rating: section.settings.show_rating,
-                quick_add: section.settings.quick_add,
-                section_id: section.id,
-                skip_styles: skip_card_product_styles
-              %}
-              {% assign skip_card_product_styles = true %}
-            </li>
-          {% endfor %}
-        {% else %}
-          {% for i in (1..section.settings.columns_desktop) %}
-            <li class="grid__item">
-              {% assign ridx = forloop.rindex %}
-              {% assign placeholder_image = 'product-apparel-' | append: ridx %}
-              {% render 'card-product',
-                show_vendor: section.settings.show_vendor,
-                media_aspect_ratio: section.settings.image_ratio,
-                image_shape: section.settings.image_shape,
-                placeholder_image: placeholder_image
-              %}
-            </li>
-          {% endfor %}
-        {% endif %}
-      </ul>
-
-      {% if show_mobile_slider or show_desktop_slider %}
-        <div class="slider-buttons">
-          <button class="slider-button slider-button--prev" aria-label="{{ 'general.slider.previous_slide' | t }}" aria-controls="Slider-{{ section.id }}">
-            <span class="svg-wrapper">{{ 'icon-caret.svg' | inline_asset_content }}</span>
-          </button>
-          <div class="slider-counter caption">
-            <span class="slider-counter--current">1</span>
-            <span aria-hidden="true"> / </span>
-            <span class="slider-counter--total">{{ products_to_display }}</span>
-          </div>
-          <button class="slider-button slider-button--next" aria-label="{{ 'general.slider.next_slide' | t }}" aria-controls="Slider-{{ section.id }}">
-            <span class="svg-wrapper">{{ 'icon-caret.svg' | inline_asset_content }}</span>
-          </button>
-        </div>
-      {% endif %}
-    </slider-component>
-
-    {% if section.settings.show_view_all and more_in_collection %}
-      <div class="center collection__view-all">
-        <a href="{{ section.settings.collection.url }}" class="{% if section.settings.view_all_style == 'link' %}link underlined-link{% elsif section.settings.view_all_style == 'solid' %}button{% else %}button button--secondary{% endif %}">
-          {{ 'sections.featured_collection.view_all' | t }}
-        </a>
-      </div>
-    {% endif %}
-
-    {% if section.settings.image_shape == 'arch' %}
-      {{ 'mask-arch.svg' | inline_asset_content }}
-    {% endif %}
-  </div>
-</div> {% endcomment %}
-
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
 {%- style -%}
   .collection-slider-section-{{ section.id }}-padding {
@@ -193,75 +19,254 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
 {%- liquid      
-    if section.settings.collection.all_products_count > section.settings.products_to_show       
+  if section.settings.collection.all_products_count > section.settings.products_to_show       
     assign more_in_collection = true
-    endif
+  endif
 -%}
+
 <div class="collection-slider-section-{{ section.id }}-padding gradient color-{{ section.settings.color_scheme }}">
-    <div class="collection-slider {% if section.settings.full_width == false %} custom-page-width {% endif %}">
-        <div class="collection-slider__text">
-            {% if section.settings.heading != blank %}
-                <h2 class="collection-slider__heading {{ section.settings.heading_size }}">
-                    {{ section.settings.heading }}
-                </h2>
-            {% endif %}
+  <div class="collection-slider {% if section.settings.full_width == false %} custom-page-width {% endif %}">
+    <div class="collection-slider__text">
+      {% if section.settings.heading != blank %}
+        <h2 class="collection-slider__heading {{ section.settings.heading_size }}">
+          {{ section.settings.heading }}
+        </h2>
+      {% endif %}
 
-            {% if section.settings.description != blank %}
-                <div class="collection-slider__description {{ section.settings.description_style }} ">
-                    {{ section.settings.description }}
-                </div>
-            {% endif %}
+      {%- if section.settings.description != blank
+        or section.settings.show_description
+        and section.settings.collection.description != empty
+      -%}
+        <div class="collection__description {{ section.settings.description_style }}">
+          {%- if section.settings.show_description -%}
+            {{ section.settings.collection.description }}
+          {%- else -%}
+            {{ section.settings.description -}}
+          {%- endif %}
         </div>
-
-        {% if section.settings.enable_desktop_slider %}
-            <div class="swiper myswiper">
-                <div class="swiper-wrapper">    
-                {% for product in section.settings.collection.products limit: section.settings.products_to_show %}
-                    <div class="swiper-slide">
-                        <div class="product-card">
-                            <a href="{{ product.url }}" class="product-card__link">
-                            <div class="product-card__image-wrapper product-card__image-wrapper--{{ section.settings.image_ratio }} product-card__image-wrapper--{{ section.settings.image_shape }}">
-                                {% if product.featured_image != blank %}
-                                    <img src="{{ product.featured_image | image_url: width: 500 }}" alt="{{ product.featured_image.alt | escape }}" class="product-card__image" />
-                                {% else %}
-                                    {{ 'product-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
-                                {% endif %}
-                            </div>
-                            <div class="product-card__info">
-                                <p class="product-card__title">{{ product.title }}</p>
-                                <span class="product-card__price">
-                                {{ product.price | money }}
-                                </span>
-                            </div>
-                            </a>
-                        </div>
-                    </div>
-                {% endfor %}
-                </div>
-                <div class="swiper-button-prev"> </div>
-                <div class="swiper-button-next"> </div>
-                {% comment %} <div class="swiper-pagination"> </div> {% endcomment %}
-            </div>
-        {% else %}
-            <div class="products-grid grid--{{ section.settings.columns_desktop }}-cols">
-                {% for product in section.settings.collection.products limit: section.settings.products_to_show %}
-                    <div class="product-card">
-                        <a href="{{ product.url }}" class="product-card__link">
-                            <div class="product-card__image-wrapper product-card__image-wrapper--{{ section.settings.image_ratio }} product-card__image-wrapper--{{ section.settings.image_shape }}">
-                            {% if product.featured_image %}
-                                <img src="{{ product.featured_image | image_url: width: 600 }}" alt="{{ product.featured_image.alt | escape }}" class="product-card__image"/>
-                            {% endif %}
-                            </div>
-                            <div class="product-card__info">
-                                <p class="product-card__title">{{ product.title }}</p>
-                                <span class="product-card__price">{{ product.price | money }}</span>
-                            </div>
-                        </a>
-                    </div>
-                {% endfor %}
-            </div>
-        {% endif %}
+      {%- endif -%}
     </div>
+
+    <div class="hide-mobile">
+      {% if section.settings.enable_desktop_slider %}     
+        <div class="swiper myswiper">
+          <div class="swiper-wrapper">    
+            {% for product in section.settings.collection.products limit: section.settings.products_to_show %}
+              <div class="swiper-slide">
+                <div class="product-card">
+                  <a href="{{ product.url }}" class="product-card__link">
+                    <div class="product-card__image-wrapper product-card__image-wrapper--{{ section.settings.image_ratio }} product-card__image-wrapper--{{ section.settings.image_shape }} {% if section.settings.show_secondary_image %} product-card__image-hover {% endif %}">
+                      {% if product.featured_image != blank %}
+                        <img src="{{ product.featured_image | image_url: width: 500 }}" alt="{{ product.featured_image.alt | escape }}" class="product-card__image product-card__image--primary" />
+                        {% if section.settings.show_secondary_image == true and product.images.size > 1 %}
+                          <img src="{{ product.images[1] | image_url: width: 500 }}" alt="{{ product.images[1].alt | escape }}" class="product-card__image product-card__image--secondary" />
+                        {% endif %}
+                      {% else %}
+                        {{ 'product-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
+                      {% endif %}
+                    </div>
+
+                    <div class="product-card__info">
+                      <p class="product-card__title">{{ product.title }}</p>
+                      {% if section.settings.show_vendor %}
+                        <p class="product-card__vendor">{{ product.vendor }}</p>
+                      {% endif %}
+                      <span class="product-card__price">
+                        {{ product.price | money }}
+                      </span>
+                    </div>
+                  </a>
+                  {% if section.settings.quick_add == 'standard'%}
+                    {% if product.variants.size > 1 %}
+                      <a class="button" href="{{ product.url }}">Choose options</a>
+                    {% else %}
+                      <form method="post" action="/cart/add">
+                        <input type="hidden" name="id" value="{{ product.variants.first.id }}">
+                        <button type="submit" class="button">Add to cart</button>
+                        </form>                  
+                      {% endif %}
+                  {% endif %}
+
+                  {% if section.settings.quick_add == 'bulk'%}
+                    {% if product.variants.size > 1 %}
+                      <a class="button" href="{{ product.url }}">Choose options</a>
+                    {% else %}
+                      <div class="bulk-quantity" data-product-id="{{ product.variants.first.id }}">
+                        <button type="button" class="qty-btn minus">-</button>
+                        <span class="qty-display" id="qty-{{ product.variants.first.id }}">0</span>
+                        <button type="button" class="qty-btn plus">+</button>
+                      </div>
+                    {% endif %}
+                  {% endif %}
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+          <div class="swiper-button-prev"> </div>
+          <div class="swiper-button-next"> </div>
+        </div>
+      {% else %}
+        <div class="products-grid grid--{{ section.settings.columns_desktop }}-cols grid--{{ section.settings.columns_mobile }}-cols">
+          {% for product in section.settings.collection.products limit: section.settings.products_to_show %}
+            <div class="product-card">
+              <a href="{{ product.url }}" class="product-card__link">
+                <div class="product-card__image-wrapper product-card__image-wrapper--{{ section.settings.image_ratio }} product-card__image-wrapper--{{ section.settings.image_shape }} product-card__image-wrapper--{{ section.settings.show_secondary_image }}">
+                  {% if product.featured_image != blank %}
+                    <img src="{{ product.featured_image | image_url: width: 500 }}" alt="{{ product.featured_image.alt | escape }}" class="product-card__image product-card__image--primary" />
+                    {% if section.settings.show_secondary_image == true and product.images.size > 1 %}
+                      <img src="{{ product.images[1] | image_url: width: 500 }}" alt="{{ product.images[1].alt | escape }}" class="product-card__image product-card__image--secondary" />
+                    {% endif %}
+                  {% else %}
+                    {{ 'product-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
+                  {% endif %}
+                </div>
+
+                <div class="product-card__info">
+                  <p class="product-card__title">{{ product.title }}</p>
+                  {% if section.settings.show_vendor %}
+                    <p class="product-card__vendor">{{ product.vendor }}</p>
+                  {% endif %}
+                  <span class="product-card__price">{{ product.price | money }}</span>
+                </div>
+              </a>
+              {% if section.settings.quick_add == 'standard'%}
+                    {% if product.variants.size > 1 %}
+                      <a class="button" href="{{ product.url }}">Choose options</a>
+                    {% else %}
+                      <form method="post" action="/cart/add">
+                        <input type="hidden" name="id" value="{{ product.variants.first.id }}">
+                        <button type="submit" class="button">Add to cart</button>
+                        </form>                  
+                      {% endif %}
+                  {% endif %}
+                  
+                  {% if section.settings.quick_add == 'bulk'%}
+                    {% if product.variants.size > 1 %}
+                      <a class="button" href="{{ product.url }}">Choose options</a>
+                    {% else %}
+                      <div class="bulk-quantity" data-product-id="{{ product.variants.first.id }}">
+                        <button type="button" class="qty-btn minus">-</button>
+                        <span class="qty-display" id="qty-{{ product.variants.first.id }}">0</span>
+                        <button type="button" class="qty-btn plus">+</button>
+                      </div>
+                    {% endif %}
+                  {% endif %}
+            </div>
+          {% endfor %}
+        </div>
+      {% endif %}
+    </div>
+
+    <div class="hide-desktop">
+      {% if section.settings.swipe_on_mobile %}     
+        <div class="swiper myswiper">
+          <div class="swiper-wrapper">    
+            {% for product in section.settings.collection.products limit: section.settings.products_to_show %}
+              <div class="swiper-slide">
+                <div class="product-card">
+                  <a href="{{ product.url }}" class="product-card__link">
+                    <div class="product-card__image-wrapper product-card__image-wrapper--{{ section.settings.image_ratio }} product-card__image-wrapper--{{ section.settings.image_shape }} {% if section.settings.show_secondary_image %} product-card__image-hover {% endif %}">
+                      {% if product.featured_image != blank %}
+                        <img src="{{ product.featured_image | image_url: width: 500 }}" alt="{{ product.featured_image.alt | escape }}" class="product-card__image product-card__image--primary" />
+                        {% if section.settings.show_secondary_image == true and product.images.size > 1 %}
+                          <img src="{{ product.images[1] | image_url: width: 500 }}" alt="{{ product.images[1].alt | escape }}" class="product-card__image product-card__image--secondary" />
+                        {% endif %}
+                      {% else %}
+                        {{ 'product-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
+                      {% endif %}
+                    </div>
+
+                    <div class="product-card__info">
+                      <p class="product-card__title">{{ product.title }}</p>
+                      {% if section.settings.show_vendor %}
+                        <p class="product-card__vendor">{{ product.vendor }}</p>
+                      {% endif %}
+                      <span class="product-card__price">
+                        {{ product.price | money }}
+                      </span>
+                    </div>
+                  </a>
+                  {% if section.settings.quick_add == 'standard'%}
+                    {% if product.variants.size > 1 %}
+                      <a class="button" href="{{ product.url }}">Choose options</a>
+                    {% else %}
+                      <form method="post" action="/cart/add">
+                        <input type="hidden" name="id" value="{{ product.variants.first.id }}">
+                        <button type="submit" class="button">Add to cart</button>
+                      </form>                  
+                    {% endif %}
+                  {% endif %}
+
+                  {% if section.settings.quick_add == 'bulk'%}
+                    {% if product.variants.size > 1 %}
+                      <a class="button" href="{{ product.url }}">Choose options</a>
+                    {% else %}
+                      <div class="bulk-quantity" data-product-id="{{ product.variants.first.id }}">
+                        <button type="button" class="qty-btn minus">-</button>
+                        <span class="qty-display" id="qty-{{ product.variants.first.id }}">0</span>
+                        <button type="button" class="qty-btn plus">+</button>
+                      </div>
+                    {% endif %}
+                  {% endif %}
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+          <div class="swiper-button-prev"> </div>
+          <div class="swiper-button-next"> </div>
+        </div>
+      {% else %}
+        <div class="products-grid grid--{{ section.settings.columns_desktop }}-cols grid--{{ section.settings.columns_mobile }}-cols">
+          {% for product in section.settings.collection.products limit: section.settings.products_to_show %}
+            <div class="product-card">
+              <a href="{{ product.url }}" class="product-card__link">
+                <div class="product-card__image-wrapper product-card__image-wrapper--{{ section.settings.image_ratio }} product-card__image-wrapper--{{ section.settings.image_shape }} product-card__image-wrapper--{{ section.settings.show_secondary_image }}">
+                  {% if product.featured_image != blank %}
+                    <img src="{{ product.featured_image | image_url: width: 500 }}" alt="{{ product.featured_image.alt | escape }}" class="product-card__image product-card__image--primary" />
+                    {% if section.settings.show_secondary_image == true and product.images.size > 1 %}
+                      <img src="{{ product.images[1] | image_url: width: 500 }}" alt="{{ product.images[1].alt | escape }}" class="product-card__image product-card__image--secondary" />
+                    {% endif %}
+                  {% else %}
+                    {{ 'product-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
+                  {% endif %}
+                </div>
+
+                <div class="product-card__info">
+                  <p class="product-card__title">{{ product.title }}</p>
+                  {% if section.settings.show_vendor %}
+                    <p class="product-card__vendor">{{ product.vendor }}</p>
+                  {% endif %}
+                  <span class="product-card__price">{{ product.price | money }}</span>
+                </div>
+              </a>
+              {% if section.settings.quick_add == 'standard'%}
+                {% if product.variants.size > 1 %}
+                  <a class="button" href="{{ product.url }}">Choose options</a>
+                {% else %}
+                  <form method="post" action="/cart/add">
+                    <input type="hidden" name="id" value="{{ product.variants.first.id }}">
+                    <button type="submit" class="button">Add to cart</button>
+                  </form>                  
+                {% endif %}
+              {% endif %}
+                  
+              {% if section.settings.quick_add == 'bulk'%}
+                {% if product.variants.size > 1 %}
+                  <a class="button" href="{{ product.url }}">Choose options</a>
+                {% else %}
+                  <div class="bulk-quantity" data-product-id="{{ product.variants.first.id }}">
+                    <button type="button" class="qty-btn minus">-</button>
+                    <span class="qty-display" id="qty-{{ product.variants.first.id }}">0</span>
+                    <button type="button" class="qty-btn plus">+</button>
+                  </div>
+                {% endif %}
+              {% endif %}
+            </div>
+          {% endfor %}
+        </div>
+      {% endif %}
+    </div>
+  </div>
 </div>
 
 
@@ -274,25 +279,129 @@
 {% endif %}
 
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
- 
+
 <script>
-    var swiper = new Swiper(".myswiper", {
-        slidesPerView: 4.3,
-      spaceBetween: 5,
-      pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-      },
-      navigation: {
+document.addEventListener('DOMContentLoaded', function () {
+  // 1. Swiper
+  new Swiper(".myswiper", {
+    navigation: {
       nextEl: ".swiper-button-next",
       prevEl: ".swiper-button-prev"
     },
-    });
-  </script>
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    breakpoints: {
+      0: {
+        slidesPerView: 2.2,
+        spaceBetween: 4,
+      },
+      750: {
+        slidesPerView: 4.3,
+        spaceBetween: 8,
+      }
+    }
+  });
+
+  // 2. Store local bulk-quantity state
+  const bulkProducts = {};
+
+  // 3. Fetch current cart and sync UI
+  function syncCartQuantities() {
+    fetch('/cart.js')
+      .then(res => res.json())
+      .then(cart => {
+        cart.items.forEach(item => {
+          const variantId = item.variant_id;
+          const qty = item.quantity;
+          const display = document.querySelector(`.bulk-quantity[data-product-id="${variantId}"] .qty-display`);
+
+          if (display) {
+            display.textContent = qty;
+            bulkProducts[variantId] = qty;
+          }
+        });
+
+        updateCartBubble(cart.item_count);
+      });
+  }
+
+  // 4. Update cart count bubble (optional)
+  function updateCartBubble(count) {
+    const bubble = document.querySelector('.cart-count-bubble');
+    if (bubble) {
+      bubble.textContent = count;
+    }
+  }
+
+  // 5. Add 1 to cart and update display
+  function addOneToCart(variantId) {
+    fetch('/cart/add.js', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify({
+        items: [{ id: variantId, quantity: 1 }]
+      })
+    })
+    .then(res => res.json())
+    .then(data => {
+      bulkProducts[variantId] = (bulkProducts[variantId] || 0) + 1;
+      document.querySelector(`.bulk-quantity[data-product-id="${variantId}"] .qty-display`).textContent = bulkProducts[variantId];
+      syncCartQuantities();
+    })
+    .catch(err => console.error('Add error:', err));
+  }
+
+  // 6. Remove 1 from cart and update display
+  function removeOneFromCart(variantId) {
+    if (!bulkProducts[variantId] || bulkProducts[variantId] <= 0) return;
+
+    const newQty = bulkProducts[variantId] - 1;
+
+    fetch('/cart/change.js', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify({
+        id: variantId,
+        quantity: newQty
+      })
+    })
+    .then(() => {
+      bulkProducts[variantId] = newQty;
+      document.querySelector(`.bulk-quantity[data-product-id="${variantId}"] .qty-display`).textContent = newQty;
+      syncCartQuantities();
+    })
+    .catch(err => console.error('Remove error:', err));
+  }
+
+  // 7. Setup +/– buttons
+  document.querySelectorAll('.bulk-quantity').forEach(bulkWrapper => {
+    const variantId = bulkWrapper.dataset.productId;
+    const plusBtn = bulkWrapper.querySelector('.qty-btn.plus');
+    const minusBtn = bulkWrapper.querySelector('.qty-btn.minus');
+
+    plusBtn.addEventListener('click', () => addOneToCart(variantId));
+    minusBtn.addEventListener('click', () => removeOneFromCart(variantId));
+  });
+
+  // 8. Initial sync
+  syncCartQuantities();
+});
+</script>
+
+
+
 
 
 {% schema %}
-{
+  {
     "name": "Collection Slider",
     "class": "collection-slider-section",
     "tag": "section",
@@ -300,7 +409,7 @@
         {
             "type": "collection",
             "id" : "collection",
-            "label": "Collcetion"
+            "label": "Collecetion"
         },
         {
             "type": "range",
@@ -413,7 +522,7 @@
             "id": "image_ratio",
             "options": [
                 {"label": "Adapt to image", "value": "adapt"},
-                {"label": "Potrait", "value": "potrait"},
+                {"label": "Portrait", "value": "portrait"},
                 {"label": "Square", "value": "square"}
             ],
             "label": "Image ratio",
@@ -443,8 +552,8 @@
         },
         {
             "type": "checkbox",
-            "id": "show_vender",
-            "label": "Vender",
+            "id": "show_vendor",
+            "label": "Vendor",
             "default": false
         },
         {
@@ -514,5 +623,5 @@
             "name": "Collection Slider"
         }
     ]
-}
+  }
 {% endschema %}
