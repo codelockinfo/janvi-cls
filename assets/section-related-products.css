@@ -5,3 +5,17 @@
 .related-products__heading {
   margin: 0 0 3rem;
 }
+
+.reviews {
+  padding-left: 4vw;
+  padding-right: 4vw;
+}
+
+.reviews h1 {
+  text-align: left;
+}
+
+.reviews p {
+  padding-left: 15vw;
+  padding-right: 15vw;
+}

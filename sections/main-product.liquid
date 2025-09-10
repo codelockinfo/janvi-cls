@@ -140,6 +140,12 @@
                     {{ form | payment_terms }}
                   {%- endform -%}
                 </div>
+              <div class="width">  
+                {% if product.metafields.custom.width %}
+                  <p> Width : {{ product.metafields.custom.width }} </p>
+                {% endif %}  
+              </div>
+
               {%- when 'inventory' -%}
                 <p
                   class="product__inventory{% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}{% if product.selected_or_first_available_variant.inventory_management != 'shopify' %} visibility-hidden{% endif %}"
@@ -662,6 +668,12 @@
                 {% render 'icon-with-text', block: block %}
             {%- endcase -%}
           {%- endfor -%}
+
+          {% if product.metafields.custom.product_detail %}
+            <h2>Product Detail</h2>
+            {{ product.metafields.custom.product_detail }}
+          {% endif %}
+
           <a href="{{ product.url }}" class="link product__view-details animate-arrow">
             {{ 'products.product.view_full_details' | t }}
             {{- 'icon-arrow.svg' | inline_asset_content -}}
@@ -723,6 +735,52 @@
     </script>
   </div>
 </product-info>
+
+<script>
+  function setCookie(name, value, days) {
+    let expires = "";
+    if (days) {
+      const date = new Date();
+      date.setTime(date.getTime() + (days*24*60*60*1000));
+      expires = "; expires=" + date.toUTCString();
+    }
+    document.cookie = name + "=" + (value || "") + expires + "; path=/";
+  }
+
+  function getCookie(name) {
+    const nameEQ = name + "=";
+    const ca = document.cookie.split(';');
+    for(let i=0;i < ca.length;i++) {
+        let c = ca[i];
+        while (c.charAt(0)==' ') c = c.substring(1,c.length);
+        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+    }
+    return null;
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const isProductPage = window.location.pathname.includes('/products/');
+    const url = new URL(window.location.href);
+
+    if (isProductPage) {
+      const currentCampaignId = url.searchParams.get('campaignid');
+
+      // Use product handle from URL path
+      const productHandle = window.location.pathname.split('/products/')[1].split('/')[0];
+      const generatedCampaignId = productHandle;
+
+      if (!currentCampaignId) {
+        // Append campaignid to URL
+        url.searchParams.set('campaignid', generatedCampaignId);
+        window.history.replaceState({}, '', url.toString());
+      }
+
+      // Set the cookie
+      setCookie('campaignid', generatedCampaignId, 30); // store for 30 days
+    }
+  });
+</script>
+
 
 {% schema %}
 {
