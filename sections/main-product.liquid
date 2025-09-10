@@ -737,6 +737,15 @@
 </product-info>
 
 <script>
+  function generateCampaignId(length = 8) {
+    const chars = 'abcdefghijklmnopqrstuvwxyz0123456789';
+    let result = '';
+    for (let i = 0; i < length; i++) {
+      result += chars.charAt(Math.floor(Math.random() * chars.length));
+    }
+    return result;
+  }
+
   function setCookie(name, value, days) {
     let expires = "";
     if (days) {
@@ -758,26 +767,20 @@
     return null;
   }
 
+  // Only run on product pages
   document.addEventListener("DOMContentLoaded", function () {
-    const isProductPage = window.location.pathname.includes('/products/');
     const url = new URL(window.location.href);
+    let campaignId = url.searchParams.get('campaignid');
 
-    if (isProductPage) {
-      const currentCampaignId = url.searchParams.get('campaignid');
-
-      // Use product handle from URL path
-      const productHandle = window.location.pathname.split('/products/')[1].split('/')[0];
-      const generatedCampaignId = productHandle;
-
-      if (!currentCampaignId) {
-        // Append campaignid to URL
-        url.searchParams.set('campaignid', generatedCampaignId);
-        window.history.replaceState({}, '', url.toString());
-      }
-
-      // Set the cookie
-      setCookie('campaignid', generatedCampaignId, 30); // store for 30 days
+    if (!campaignId) {
+      // Generate new ID if none present
+      campaignId = generateCampaignId();
+      url.searchParams.set('campaignid', campaignId);
+      window.history.replaceState({}, '', url.toString());
     }
+
+    // Save to cookie
+    setCookie('campaignid', campaignId, 30); // store for 30 days
   });
 </script>
 
