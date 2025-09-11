@@ -736,7 +736,8 @@
   </div>
 </product-info>
 
-<script>
+{% comment %} <script>
+document.addEventListener("DOMContentLoaded", function () {
   function generateCampaignId(length = 8) {
     const chars = 'abcdefghijklmnopqrstuvwxyz0123456789';
     let result = '';
@@ -746,44 +747,23 @@
     return result;
   }
 
-  function setCookie(name, value, days) {
-    let expires = "";
-    if (days) {
-      const date = new Date();
-      date.setTime(date.getTime() + (days*24*60*60*1000));
-      expires = "; expires=" + date.toUTCString();
-    }
-    document.cookie = name + "=" + (value || "") + expires + "; path=/";
+  const campaignId = generateCampaignId();
+
+  const url = new URL(window.location.href);
+  if (!url.searchParams.has('campaignid')) {
+    url.searchParams.set('campaignid', campaignId);
+    window.history.replaceState({}, '', url.toString());
   }
 
-  function getCookie(name) {
-    const nameEQ = name + "=";
-    const ca = document.cookie.split(';');
-    for(let i=0;i < ca.length;i++) {
-        let c = ca[i];
-        while (c.charAt(0)==' ') c = c.substring(1,c.length);
-        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
-    }
-    return null;
-  }
+  const propertyInput = document.getElementById('product-campaign-id');
+  const attributeInput = document.getElementById('cart-campaign-id');
+  const tagInput = document.getElementById('tag-campaign-id');
 
-  // Only run on product pages
-  document.addEventListener("DOMContentLoaded", function () {
-    const url = new URL(window.location.href);
-    let campaignId = url.searchParams.get('campaignid');
-
-    if (!campaignId) {
-      // Generate new ID if none present
-      campaignId = generateCampaignId();
-      url.searchParams.set('campaignid', campaignId);
-      window.history.replaceState({}, '', url.toString());
-    }
-
-    // Save to cookie
-    setCookie('campaignid', campaignId, 30); // store for 30 days
-  });
-</script>
-
+  if (propertyInput) propertyInput.value = campaignId;
+  if (attributeInput) attributeInput.value = campaignId;
+  if (tagInput) tagInput.value = campaignId;
+});
+</script> {% endcomment %}
 
 {% schema %}
 {
