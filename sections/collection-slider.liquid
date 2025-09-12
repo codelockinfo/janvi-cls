@@ -282,15 +282,10 @@
 
 <script>
 document.addEventListener('DOMContentLoaded', function () {
-  // 1. Swiper
   new Swiper(".myswiper", {
     navigation: {
       nextEl: ".swiper-button-next",
       prevEl: ".swiper-button-prev"
-    },
-    pagination: {
-      el: ".swiper-pagination",
-      clickable: true,
     },
     breakpoints: {
       0: {
@@ -304,10 +299,8 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 
-  // 2. Store local bulk-quantity state
   const bulkProducts = {};
 
-  // 3. Fetch current cart and sync UI
   function syncCartQuantities() {
     fetch('/cart.js')
       .then(res => res.json())
@@ -327,7 +320,6 @@ document.addEventListener('DOMContentLoaded', function () {
       });
   }
 
-  // 4. Update cart count bubble (optional)
   function updateCartBubble(count) {
     const bubble = document.querySelector('.cart-count-bubble');
     if (bubble) {
@@ -335,7 +327,6 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
 
-  // 5. Add 1 to cart and update display
   function addOneToCart(variantId) {
     fetch('/cart/add.js', {
       method: 'POST',
@@ -356,7 +347,6 @@ document.addEventListener('DOMContentLoaded', function () {
     .catch(err => console.error('Add error:', err));
   }
 
-  // 6. Remove 1 from cart and update display
   function removeOneFromCart(variantId) {
     if (!bulkProducts[variantId] || bulkProducts[variantId] <= 0) return;
 
@@ -381,7 +371,6 @@ document.addEventListener('DOMContentLoaded', function () {
     .catch(err => console.error('Remove error:', err));
   }
 
-  // 7. Setup +/– buttons
   document.querySelectorAll('.bulk-quantity').forEach(bulkWrapper => {
     const variantId = bulkWrapper.dataset.productId;
     const plusBtn = bulkWrapper.querySelector('.qty-btn.plus');
@@ -391,14 +380,9 @@ document.addEventListener('DOMContentLoaded', function () {
     minusBtn.addEventListener('click', () => removeOneFromCart(variantId));
   });
 
-  // 8. Initial sync
   syncCartQuantities();
 });
 </script>
-
-
-
-
 
 {% schema %}
   {
