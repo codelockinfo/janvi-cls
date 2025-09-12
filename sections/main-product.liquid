@@ -765,6 +765,37 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 </script> {% endcomment %}
 
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  function generateCampaignId(length = 8) {
+    const chars = 'abcdefghijklmnopqrstuvwxyz0123456789';
+    let result = '';
+    for (let i = 0; i < length; i++) {
+      result += chars.charAt(Math.floor(Math.random() * chars.length));
+    }
+    return result;
+  }
+
+  const url = new URL(window.location.href);
+  let campaignId = url.searchParams.get('campaignid');
+
+  if (!campaignId) {
+    campaignId = generateCampaignId();
+    url.searchParams.set('campaignid', campaignId);
+    window.history.replaceState({}, '', url.toString());
+  }
+
+  const propertyInput = document.getElementById('product-campaign-id');
+  const attributeInput = document.getElementById('cart-campaign-id');
+  const tagInput = document.getElementById('tag-campaign-id');
+
+  if (propertyInput) propertyInput.value = campaignId;
+  if (attributeInput) attributeInput.value = campaignId;
+  if (tagInput) tagInput.value = campaignId;
+});
+</script>
+
+
 {% schema %}
 {
   "name": "t:sections.main-product.name",

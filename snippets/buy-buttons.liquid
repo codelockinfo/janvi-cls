@@ -55,9 +55,9 @@
           {% endif %}
           class="product-variant-id"
         >
-        <input type="text" name="properties[Campaign ID]" id="product-campaign-id" value="">
-        <input type="text" name="attributes[Campaign ID]" id="cart-campaign-id" value="">
-        <input type="text" name="tags[Campaign ID]" id="tag-campaign-id" value="">
+        <input type="hidden" name="properties[Campaign ID]" id="product-campaign-id" value="">
+        <input type="hidden" name="attributes[Campaign ID]" id="cart-campaign-id" value="">
+        {% comment %} <input type="text" name="tags[]" id="tag-campaign-id" value=""> {% endcomment %}
 
         {%- if gift_card_recipient_feature_active -%}
           {%- render 'gift-card-recipient-form', product: product, form: form, section: section -%}
@@ -172,7 +172,6 @@
     console.warn('Invalid or missing campaign_ids cookie');
   }
 
-  // Set values for both inputs
   const propertyInput = document.getElementById('product-campaign-id');
   const attributeInput = document.getElementById('cart-campaign-id');
   const tagInput = document.getElementById('tag-campaign-id');
@@ -187,11 +186,46 @@
     tagInput.value = campaignId;
   }
 });
-
 </script> {% endcomment %}
 
 <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const productHandle = window.location.pathname.split('/').pop();
+
+    function getCookie(name) {
+      const value = `; ${document.cookie}`;
+      const parts = value.split(`; ${name}=`);
+      if (parts.length === 2) return parts.pop().split(';').shift();
+    }
+
+    let campaignId = '';
+    try {
+      const cookie = decodeURIComponent(getCookie('campaign_ids') || '{}');
+      const data = JSON.parse(cookie);
+      campaignId = data[productHandle] || '';
+    } catch (e) {
+      console.warn('Invalid or missing campaign_ids cookie');
+    }
+
+    // Debugging aid (optional)
+    console.log('Product Handle:', productHandle);
+    console.log('Campaign ID from cookie:', campaignId);
+
+    if (campaignId) {
+      const propertyInput = document.getElementById('product-campaign-id');
+      const attributeInput = document.getElementById('cart-campaign-id');
+      {% comment %} const tagInput = document.getElementById('tag-campaign-id'); {% endcomment %}
+
+      if (propertyInput) propertyInput.value = campaignId;
+      if (attributeInput) attributeInput.value = campaignId;
+      {% comment %} if (tagInput) tagInput.value = `Campaign ID: ${campaignId}`; {% endcomment %}
+    }
+  });
+</script>
+
+{% comment %} <script>
 document.addEventListener("DOMContentLoaded", function () {
+  // Helper: generate random campaign ID
   function generateCampaignId(length = 8) {
     const chars = 'abcdefghijklmnopqrstuvwxyz0123456789';
     let result = '';
@@ -201,36 +235,19 @@ document.addEventListener("DOMContentLoaded", function () {
     return result;
   }
 
+  // Generate a new ID every time
   const campaignId = generateCampaignId();
 
-  // Always update campaignid param in URL, even if present
+  // Update URL
   const url = new URL(window.location.href);
   url.searchParams.set('campaignid', campaignId);
   window.history.replaceState({}, '', url.toString());
 
+  // Populate inputs
   ['product-campaign-id', 'cart-campaign-id', 'tag-campaign-id'].forEach(id => {
     const el = document.getElementById(id);
     if (el) el.value = campaignId;
   });
-
-  const buttonsContainer = document.querySelector('.product-form__buttons');
-  if (buttonsContainer) {
-    const existing = buttonsContainer.querySelector('.campaign-id-display');
-    if (existing) existing.remove();
-
-    const displayDiv = document.createElement('div');
-    displayDiv.className = 'campaign-id-display';
-    displayDiv.textContent = `Campaign ID: ${campaignId}`;
-    displayDiv.style.marginTop = '10px';
-    displayDiv.style.fontSize = '14px';
-    displayDiv.style.color = '#444';
-    displayDiv.style.fontStyle = 'italic';
-
-    buttonsContainer.appendChild(displayDiv);
-  }
 });
+</script> {% endcomment %}
 
-
-
-
-</script>
