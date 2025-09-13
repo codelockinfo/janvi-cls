@@ -1,58 +1,123 @@
 {{ 'vertical-slide.css' | asset_url | stylesheet_tag }}
 
-{% for block in section.blocks %}
-<div class="vertical-scroll-section">
-    <div class="page-width">
-        <div class="vertical-scroll">
-            <div class="vertical-scroll__grid grid grid--gapless">
-                <div class="vertical-scroll-media-item grid-item">
-                    <div class="vertical-scroll-media">
-                        {% if block.settings.image != blank %}
-                            <img src="{{ block.settings.image | image_url: width: 600 }}">
-                        {% else %}
-                            {{ 'hero-apparel-1' | placeholder_svg_tag: 'placeholder-svg'}}
-                        {% endif %}
-                    </div>
-                </div>
+{%- style -%}
+    .vertical-scroll-section-{{ section.id }}-padding {
+        padding-top: {{ section.settings.padding_top }}px;
+        padding-bottom: {{ section.settings.padding_bottom }}px; 
+    }
 
-                <div class="vertical-scroll-media-text-item grid-item">
-                    <div class="vertical-scroll-media2">
-                        {% if block.settings.image2 != blank %}
-                            <img src="{{ block.settings.image2 | image_url: width: 600 }}">
-                        {% else %}
-                            {{ 'hero-apparel-1' | placeholder_svg_tag: 'placeholder-svg'}}
-                        {% endif %}
-                    </div>
+    @media screen and (max-width: 750px){
+        .vertical-scroll-section-{{ section.id }}-padding {
+            padding-top: {{ section.settings.padding_top }}px;
+            padding-bottom: {{ section.settings.padding_bottom }}px; 
+        }
+    }
+{%- endstyle -%}
 
-                    <div class="vertical-scroll-text">
-                        {% if block.settings.heading %}
-                            <h2 class="vertical-scroll__heading {{ block.settings.heading_size }}">
-                                {{ block.settings.heading }}
-                            </h2>
-                        {% endif %}
-                        {% if block.settings.text %}
-                            <div class="vertical-scroll__text {{ block.settings.text_style }}">
-                                {{ block.settings.text }}
+<div class="swiper MySwiper">
+    <div class="swiper-wrapper">
+        {% for block in section.blocks %}
+            <div class="swiper-slide">
+                <div class="vertical-scroll-section-{{ section.id }}-padding 
+                    gradient color-{{ section.settings.color_scheme }}">
+                    <div class="page-width">
+                        <div class="vertical-scroll">
+                            <div class="vertical-scroll__grid grid grid--gapless">
+                                <div class="vertical-scroll-media-item grid-item">
+                                    <div class="vertical-scroll-media
+                                        vertical-scroll-media--{{ block.settings.height }}">
+                                        {% if block.settings.image != blank %}
+                                            <img src="{{ block.settings.image | image_url: width: 1000 }}">
+                                        {% else %}
+                                            {{ 'hero-apparel-1' | placeholder_svg_tag: 'placeholder-svg'}}
+                                        {% endif %}
+                                    </div>
+                                </div>
+
+                                <div class="vertical-scroll-media-text-item grid-item">
+                                    <div class="vertical-scroll-media2
+                                        vertical-scroll-media2--{{ block.settings.height }}">
+                                        {% if block.settings.image2 != blank %}
+                                            <img src="{{ block.settings.image2 | image_url: width: 1000 }}">
+                                        {% else %}
+                                            {{ 'hero-apparel-1' | placeholder_svg_tag: 'placeholder-svg'}}
+                                        {% endif %}
+                                    </div>
+
+                                    <div class="vertical-scroll-text 
+                                        vertical-scroll-text--desktop-{{ block.settings.desktop_content_alignment }} 
+                                        vertical-scroll-text--mobile-{{ block.settings.mobile_content_alignment }}
+                                        vertical-scroll-text--{{ block.settings.desktop_content_position }}
+                                        ">
+                                        {% if block.settings.heading %}
+                                            <h2 class="vertical-scroll__heading {{ block.settings.heading_size }}">
+                                                {{ block.settings.heading }}
+                                            </h2>
+                                        {% endif %}
+                                        {% if block.settings.text %}
+                                            <div class="vertical-scroll__text {{ block.settings.text_style }}">
+                                                {{ block.settings.text }}
+                                            </div>
+                                        {% endif %}
+                                        {% if block.settings.button_label %}
+                                            <a {% if block.settings.button_link == blank %}
+                                                    role="link" aria-disabled="true"
+                                                {% else %}
+                                                    href="{{ block.settings.button_link }}"
+                                                {% endif %} 
+                                                    class="link"
+                                            >
+                                                {{ block.settings.button_label }}
+                                            </a>
+                                        {% endif %}
+                                    </div>
+                                </div>
                             </div>
-                        {% endif %}
-                        {% if block.settings.button_link %}
-                            <a {% if block.settings.button_link == blank %}
-                                    role="link" aria-disabled="true"
-                                {% else %}
-                                    href="{{ block.settings.button_link }}"
-                                {% endif %} 
-                                    class="button"
-                            >
-                                {{ block.settings.button_label }}
-                            </a>
-                        {% endif %}
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        {% endfor %}
     </div>
 </div>
-{% endfor %}
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+  <script>
+    var swiper = new Swiper(".MySwiper", {
+  direction: "vertical",
+  mousewheel: true,
+});
+
+document.querySelectorAll('.swiper-slide').forEach(slide => {
+  const textContainer = slide.querySelector('.vertical-scroll-text');
+
+  if (!textContainer) return;
+
+  textContainer.addEventListener('wheel', function(e) {
+    const delta = e.deltaY;
+    const scrollTop = this.scrollTop;
+    const scrollHeight = this.scrollHeight;
+    const offsetHeight = this.offsetHeight;
+
+    const isScrollable = scrollHeight > offsetHeight;
+    const atTop = scrollTop === 0;
+    const atBottom = scrollTop + offsetHeight >= scrollHeight - 1;
+
+    if (!isScrollable) {
+      return;
+    }
+
+    if ((delta < 0 && atTop) || (delta > 0 && atBottom)) {
+      return;
+    }
+
+    e.stopPropagation();
+  });
+});
+
+
+  </script>
 
 
 {% schema %}
@@ -60,7 +125,36 @@
     "name": "Vertical Scroll",
     "tag": "section",
     "class": "vertical-scroll-section",
-    "settings": [],
+    "settings": [
+        {
+            "type": "color_scheme",
+            "id": "color_scheme",
+            "label": "Color",
+            "default": "scheme_1"
+        },
+        {
+            "type": "header",
+            "content": "Padding"
+        },
+        {
+            "type": "range",
+            "id": "padding_top",
+            "min": 0,
+            "max": 100,
+            "step": 4,
+            "label": "Padding Top",
+            "default": 36
+        },
+        {
+            "type": "range",
+            "id": "padding_bottom",
+            "min": 0,
+            "max": 100,
+            "step": 4,
+            "label": "Padding Bottom",
+            "default": 36
+        }
+    ],
     "blocks": [
         {
             "type": "slide",
@@ -75,6 +169,18 @@
                     "type": "image_picker",
                     "id": "image2",
                     "label": "Image 2"
+                },
+                {
+                    "type": "select",
+                    "id": "height",
+                    "options": [
+                        {"label": "Adapt to image", "value": "adapt"},
+                        {"label": "Small", "value": "small"},
+                        {"label": "Medium", "value": "medium"},
+                        {"label": "Large", "value": "large"}
+                    ],
+                    "label": "Height",
+                    "default": "adapt"
                 },
                 {
                     "type": "inline_richtext",
@@ -121,6 +227,43 @@
                     "type": "url",
                     "id": "button_link",
                     "label": "Button Link"
+                },
+                {
+                    "type": "header",
+                    "content": "Layout"
+                },
+                {
+                    "type": "select",
+                    "id": "desktop_content_position",
+                    "options": [
+                        {"label": "Top", "value": "top"},
+                        {"label": "Middle", "value": "middle"},
+                        {"label": "Bottom", "value": "bottom"}
+                    ],
+                    "label": "Position",
+                    "default": "top"
+                },
+                {
+                    "type": "select",
+                    "id": "desktop_content_alignment",
+                    "options": [
+                        {"label": "Left", "value": "left"},
+                        {"label": "Center", "value": "center"},
+                        {"label": "Right", "value": "right"}
+                    ],
+                    "label": "Alignment",
+                    "default": "left"
+                },
+                {
+                    "type": "select",
+                    "id": "mobile_content_alignment",
+                    "options": [
+                        {"label": "Left", "value": "left"},
+                        {"label": "Center", "value": "center"},
+                        {"label": "Right", "value": "right"}
+                    ],
+                    "label": "Alignment",
+                    "default": "left"
                 }
             ]
         }

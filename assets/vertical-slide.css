@@ -1,17 +1,110 @@
+.vertical-scroll-section img{
+    width: 100%;
+    object-fit: cover;
+}
+
 .vertical-scroll-media-text-item{
     position: relative;
 }
 
 .vertical-scroll-text{
     position: absolute;
-    top: 15%;
-    left: 40%;
+    top: 0;
+    left: 10%;
+    right: 10%;
+    bottom:10%
 }
 
+.grid{
+    flex-wrap: nowrap !important;
+}
+
+.vertical-scroll__heading,
+.vertical-scroll__text{
+    margin-bottom: 0 !important;
+}
+
+.MySwiper {
+    height: 40vw;
+    overflow: hidden;
+}
+
+.vertical-scroll-text {
+  max-height: 60vh;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+  /* padding-right: 10px; */
+}
+
+.vertical-scroll-text::-webkit-scrollbar {
+  /* width: 6px; */
+  display: none;
+}
+
+/* .vertical-scroll-text::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 3px;
+} */
 
 
+.vertical-scroll-text--desktop-left{
+    text-align: left;
+}
 
+.vertical-scroll-text--desktop-center{
+    text-align: center;
+}
 
+.vertical-scroll-text--desktop-right{
+    text-align: right;
+}
+
+.vertical-scroll-text--top{
+    align-self:flex-start;
+    justify-content: flex-start;
+}
+
+.vertical-scroll-text--middle{
+    align-self:center;
+    justify-content: center;
+}
+
+.vertical-scroll-text--bottom{
+    align-self:flex-end;
+    justify-content: flex-end;
+}
+
+.vertical-scroll-media--small img,
+.vertical-scroll-media2--small img{
+    height: 30vw;
+    object-fit: cover;
+}
+
+.vertical-scroll-media--medium img,
+.vertical-scroll-media2--medium img{
+    height: 50vw;
+    object-fit: cover;
+}
+
+.vertical-scroll-media--large img,
+.vertical-scroll-media2--large img{
+    height: 60vw;
+    object-fit: cover;
+}
+
+@media screen and (max-width: 750px){
+.vertical-scroll-text--mobile-left{
+    text-align: left;
+}
+
+.vertical-scroll-text--mobile-center{
+    text-align: center;
+}
+
+.vertical-scroll-text--mobile-right{
+    text-align: right;
+}
+}
 
 
 
